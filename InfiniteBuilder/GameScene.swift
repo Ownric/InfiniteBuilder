@@ -8,6 +8,7 @@
 
 import SpriteKit
 
+
 class GameScene: SKScene, SKPhysicsContactDelegate{
     
     enum GameSceneState {
@@ -31,14 +32,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     let fixedDelta: CFTimeInterval = 1.0/60.0 /* 60 FPS */
     
-    var scrollSpeed: CGFloat = 160
+    var selectScene: SelectScene!
     
     /* UI Connections */
     var buttonRestart: MSButtonNode!
     
     var points = 0
-    
-    var buttonSpeedFast: MSButtonNode!
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -143,7 +142,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     func scrollWorld() {
         /* Scroll World */
-        scrollLayer.position.x -= scrollSpeed * CGFloat(fixedDelta)
+        print(selectScene.scrollSpeed)
+        scrollLayer.position.x -= selectScene.scrollSpeed * CGFloat(fixedDelta)
         
         /* Loop through scroll layer nodes */
         for ground in scrollLayer.children as! [SKSpriteNode] {
@@ -165,7 +165,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     func updateObstacles() {
         /* Update Obstacles */
         
-        obstacleLayer.position.x -= scrollSpeed * CGFloat(fixedDelta)
+        obstacleLayer.position.x -= selectScene.scrollSpeed * CGFloat(fixedDelta)
         
         /* Loop through obstacle layer nodes */
         for obstacle in obstacleLayer.children as! [SKReferenceNode] {

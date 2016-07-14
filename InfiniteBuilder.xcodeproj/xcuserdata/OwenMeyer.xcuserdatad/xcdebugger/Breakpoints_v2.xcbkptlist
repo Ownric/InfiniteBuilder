@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InfiniteBuilder/GameScene.swift"
+            timestampString = "490228794.150125"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "GameScene"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "InfiniteBuilder.GameScene.fixedDelta.getter : Swift.Double"
+                  moduleName = "InfiniteBuilder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/OwenMeyer/Desktop/InfiniteBuilder/InfiniteBuilder/GameScene.swift"
+                  timestampString = "490228794.689292"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "InfiniteBuilder.GameScene.init (size : __C.CGSize) -&gt; InfiniteBuilder.GameScene"
+                  moduleName = "InfiniteBuilder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/OwenMeyer/Desktop/InfiniteBuilder/InfiniteBuilder/GameScene.swift"
+                  timestampString = "490228794.692269"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "InfiniteBuilder.GameScene.init () -&gt; InfiniteBuilder.GameScene"
+                  moduleName = "InfiniteBuilder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/OwenMeyer/Desktop/InfiniteBuilder/InfiniteBuilder/GameScene.swift"
+                  timestampString = "490228794.692417"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "272">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "InfiniteBuilder.GameScene.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;InfiniteBuilder.GameScene&gt;"
+                  moduleName = "InfiniteBuilder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/OwenMeyer/Desktop/InfiniteBuilder/InfiniteBuilder/GameScene.swift"
+                  timestampString = "490228794.69252"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "276">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

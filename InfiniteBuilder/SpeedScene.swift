@@ -10,10 +10,20 @@ import SpriteKit
 
 class SpeedScene: SKScene {
     
+    enum speedType{
+        case Fast, Medium, Slow
+    }
+    
+    var currentSpeedType: speedType = .Slow
+    
     /* UI Connections */
     var buttonReturn: MSButtonNode!
     
     var buttonSpeedFast: MSButtonNode!
+    
+    var buttonSpeedMedium: MSButtonNode!
+    
+    var selectWhatever: SelectScene!
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -23,29 +33,26 @@ class SpeedScene: SKScene {
         
         buttonSpeedFast = self.childNodeWithName("buttonSpeedFast") as! MSButtonNode
         
+        buttonSpeedMedium = self.childNodeWithName("buttonSpeedMedium") as! MSButtonNode
+        
         /* Setup restart button selection handler */
         buttonReturn.selectedHandler = {
             
             /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
             
-            /* Load Game scene */
-            let scene = SelectScene(fileNamed:"SelectScene") as SelectScene!
-            
-            /* Ensure correct aspect mode */
-            scene.scaleMode = .AspectFill
-            
-            /* Show debug */
-            skView.showsPhysics = true
-            skView.showsDrawCount = true
-            skView.showsFPS = true
-            
             /* Start game scene */
-            skView.presentScene(scene)
+            skView.presentScene(self.selectWhatever)
         }
         
         buttonSpeedFast.selectedHandler = {
-            GameScene.valueForKey("scrollSpeed") = 300
+            
+            self.selectWhatever.scrollSpeed = 400.0
+            
+        }
+        
+        buttonSpeedMedium.selectedHandler = {
         }
     }
+    
 }

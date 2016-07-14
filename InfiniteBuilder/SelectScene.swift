@@ -23,6 +23,8 @@ class SelectScene: SKScene {
     
     var buttonSpeed: MSButtonNode!
     
+    var scrollSpeed: CGFloat = 160
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
@@ -77,6 +79,8 @@ class SelectScene: SKScene {
             
             /* Start game scene */
             skView.presentScene(scene)
+            
+            print(self.scrollSpeed)
         }
         
         /* Setup play button selection handler */
@@ -106,8 +110,12 @@ class SelectScene: SKScene {
             /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
             
+            
+            
             /* Load Game scene */
             let scene = ObstacleScene(fileNamed:"ObstacleScene") as ObstacleScene!
+            
+            scene.selectWhatever = self
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
@@ -129,6 +137,8 @@ class SelectScene: SKScene {
             
             /* Load Game scene */
             let scene = SpeedScene(fileNamed:"SpeedScene") as SpeedScene!
+            
+            scene.selectWhatever = self
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill

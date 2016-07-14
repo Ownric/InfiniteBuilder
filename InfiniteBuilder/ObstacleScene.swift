@@ -13,6 +13,8 @@ class ObstacleScene: SKScene {
     /* UI Connections */
     var buttonReturn: MSButtonNode!
     
+    var selectWhatever: SelectScene!
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
@@ -25,19 +27,9 @@ class ObstacleScene: SKScene {
             /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
             
-            /* Load Game scene */
-            let scene = SelectScene(fileNamed:"SelectScene") as SelectScene!
-            
-            /* Ensure correct aspect mode */
-            scene.scaleMode = .AspectFill
-            
-            /* Show debug */
-            skView.showsPhysics = true
-            skView.showsDrawCount = true
-            skView.showsFPS = true
             
             /* Start game scene */
-            skView.presentScene(scene)
+            skView.presentScene(self.selectWhatever)
         }
     }
 }
