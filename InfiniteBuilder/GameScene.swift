@@ -32,7 +32,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     let fixedDelta: CFTimeInterval = 1.0/60.0 /* 60 FPS */
     
-    var selectScene: SelectScene!
+    var selectWhatever: SelectScene!
+    
+    var scrollSpeed: CGFloat = 0
     
     /* UI Connections */
     var buttonRestart: MSButtonNode!
@@ -66,13 +68,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             let skView = self.view as SKView!
             
             /* Load Game scene */
-            let scene = GameScene(fileNamed:"GameScene") as GameScene!
+            let scene = SelectScene(fileNamed:"SelectScene") as SelectScene! //here
+            //let scene = GameScene(fileNamed:"GameScene") as GameScene! //here
+            
+            //self.scrollSpeed = self.selectWhatever.scrollSpeed
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
             /* Restart game scene */
-            skView.presentScene(scene)
+            skView.presentScene(self.selectWhatever)
             
         }
         
@@ -142,8 +147,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     func scrollWorld() {
         /* Scroll World */
-        print(selectScene.scrollSpeed)
-        scrollLayer.position.x -= selectScene.scrollSpeed * CGFloat(fixedDelta)
+        scrollLayer.position.x -= self.selectWhatever.scrollSpeed * CGFloat(fixedDelta)
+        //scrollLayer.position.x -= self.scrollSpeed * CGFloat(fixedDelta)
         
         /* Loop through scroll layer nodes */
         for ground in scrollLayer.children as! [SKSpriteNode] {
@@ -164,8 +169,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     func updateObstacles() {
         /* Update Obstacles */
-        
-        obstacleLayer.position.x -= selectScene.scrollSpeed * CGFloat(fixedDelta)
+        obstacleLayer.position.x -= self.selectWhatever.scrollSpeed * CGFloat(fixedDelta)
+        //obstacleLayer.position.x -= self.scrollSpeed * CGFloat(fixedDelta)
         
         /* Loop through obstacle layer nodes */
         for obstacle in obstacleLayer.children as! [SKReferenceNode] {

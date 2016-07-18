@@ -26,9 +26,6 @@ class ObstacleScene: SKScene {
             
             /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
-            
-            
-            /* Start game scene */
             skView.presentScene(self.selectWhatever)
         }
     }

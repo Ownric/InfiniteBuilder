@@ -23,7 +23,11 @@ class SelectScene: SKScene {
     
     var buttonSpeed: MSButtonNode!
     
-    var scrollSpeed: CGFloat = 160
+    var scrollSpeed: CGFloat = 200
+    
+    var highScore: Int = 0
+    
+    var controlType: Int = 1
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -69,6 +73,9 @@ class SelectScene: SKScene {
             /* Load Game scene */
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
             
+            scene.selectWhatever = self
+            scene.scrollSpeed = self.scrollSpeed //here
+            
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
@@ -91,6 +98,8 @@ class SelectScene: SKScene {
             
             /* Load Game scene */
             let scene = ControlsScene(fileNamed:"ControlsScene") as ControlsScene!
+            
+            scene.selectWhatever = self
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill

@@ -13,31 +13,37 @@ class ControlsScene: SKScene {
     /* UI Connections */
     var buttonReturn: MSButtonNode!
     
+    var selectWhatever: SelectScene!
+    
+    var buttonControlFlappy: MSButtonNode!
+    
+    var buttonControlJetPack: MSButtonNode!
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
         /* Set UI connections */
         buttonReturn = self.childNodeWithName("buttonReturn") as! MSButtonNode
         
+        buttonControlFlappy = self.childNodeWithName("buttonControlFlappy") as! MSButtonNode
+        
+        buttonControlJetPack = self.childNodeWithName("buttonControlJetPack") as! MSButtonNode
+        
         /* Setup restart button selection handler */
         buttonReturn.selectedHandler = {
             
             /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
-            
-            /* Load Game scene */
-            let scene = SelectScene(fileNamed:"SelectScene") as SelectScene!
-            
-            /* Ensure correct aspect mode */
-            scene.scaleMode = .AspectFill
-            
-            /* Show debug */
-            skView.showsPhysics = true
-            skView.showsDrawCount = true
-            skView.showsFPS = true
-            
-            /* Start game scene */
-            skView.presentScene(scene)
+            skView.presentScene(self.selectWhatever)
         }
+        
+        buttonControlJetPack.selectedHandler = {
+            self.selectWhatever.controlType = 0
+        }
+        
+        buttonControlFlappy.selectedHandler = {
+            self.selectWhatever.controlType = 1
+        }
+        
     }
 }
