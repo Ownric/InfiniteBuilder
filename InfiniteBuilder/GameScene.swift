@@ -75,9 +75,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             
             /* Load Game scene */
             let scene = SelectScene(fileNamed:"SelectScene") as SelectScene! //here
-            //let scene = GameScene(fileNamed:"GameScene") as GameScene! //here
-            
-            //self.scrollSpeed = self.selectWhatever.scrollSpeed
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
@@ -112,15 +109,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         if self.selectWhatever.controlType == 0 {
             touched = true
-            print("doggo")
         }
-        
-        /*while touched {
-            /* Apply vertical impulse */
-            hero.physicsBody?.applyImpulse(CGVectorMake(0, 0.000000000001))
-            print(hero.physicsBody?.applyImpulse(CGVectorMake(0, 0.000000000001)))
-        }*/
-        
         
         /* Apply subtle rotation */
         hero.physicsBody?.applyAngularImpulse(1)
@@ -160,7 +149,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if touched {
             /* Apply vertical impulse */
             hero.physicsBody?.applyImpulse(CGVectorMake(0, 1.75))
-            print("continue")
             
         }
         
@@ -184,7 +172,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     func scrollWorld() {
         /* Scroll World */
         scrollLayer.position.x -= self.selectWhatever.scrollSpeed * CGFloat(fixedDelta)
-        //scrollLayer.position.x -= self.scrollSpeed * CGFloat(fixedDelta)
         
         /* Loop through scroll layer nodes */
         for ground in scrollLayer.children as! [SKSpriteNode] {
@@ -206,7 +193,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     func updateObstacles() {
         /* Update Obstacles */
         obstacleLayer.position.x -= self.selectWhatever.scrollSpeed * CGFloat(fixedDelta)
-        //obstacleLayer.position.x -= self.scrollSpeed * CGFloat(fixedDelta)
         
         /* Loop through obstacle layer nodes */
         for obstacle in obstacleLayer.children as! [SKReferenceNode] {
@@ -298,20 +284,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         buttonRestart.state = .Active
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-    }
-    
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         touched = false
-        if touched == false{
-            print("over")
-            
-        }
-        if self.selectWhatever.controlType == 1 {
-            /* Reset velocity, helps improve response against cumulative falling velocity */
-            //hero.physicsBody?.velocity = CGVectorMake(0, 0)
-
-        }
+        
     }
 }

@@ -41,29 +41,18 @@ class SpeedScene: SKScene {
         
         /* Setup restart button selection handler */
         buttonReturn.selectedHandler = {
-            
             /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
-            
-            
             skView.presentScene(self.selectWhatever)
         }
-        
         buttonSpeedFast.selectedHandler = {
-            
             self.selectWhatever.scrollSpeed = 400
-            
         }
-        
         buttonSpeedMedium.selectedHandler = {
             self.selectWhatever.scrollSpeed = 300
         }
-        
         buttonSpeedSlow.selectedHandler = {
             self.selectWhatever.scrollSpeed = 200
         }
-        
-        
     }
-    
 }

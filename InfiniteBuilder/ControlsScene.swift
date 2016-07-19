@@ -44,6 +44,5 @@ class ControlsScene: SKScene {
         buttonControlFlappy.selectedHandler = {
             self.selectWhatever.controlType = 1
         }
-        
     }
 }

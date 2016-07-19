@@ -119,8 +119,6 @@ class SelectScene: SKScene {
             /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
             
-            
-            
             /* Load Game scene */
             let scene = ObstacleScene(fileNamed:"ObstacleScene") as ObstacleScene!
             

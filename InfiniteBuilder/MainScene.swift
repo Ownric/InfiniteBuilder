@@ -39,7 +39,5 @@ class MainScene: SKScene {
             /* Start game scene */
             skView.presentScene(scene)
         }
-        
     }
-    
 }
