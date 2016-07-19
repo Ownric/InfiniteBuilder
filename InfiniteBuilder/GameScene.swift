@@ -36,10 +36,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     var scrollSpeed: CGFloat = 0
     
+    var touched: Bool = false
+    
+    var touchNode: SKSpriteNode!
+    
     /* UI Connections */
     var buttonRestart: MSButtonNode!
     
     var points = 0
+    
+    var test: Int = 0
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -94,11 +100,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         /* Skip game update if game no longer active */
         if gameState != .Active { return }
         
-        /* Reset velocity, helps improve response against cumulative falling velocity */
-        hero.physicsBody?.velocity = CGVectorMake(0, 0)
         
-        /* Apply vertical impulse */
-        hero.physicsBody?.applyImpulse(CGVectorMake(0, 250))
+        if self.selectWhatever.controlType == 1 {
+            
+            /* Reset velocity, helps improve response against cumulative falling velocity */
+            hero.physicsBody?.velocity = CGVectorMake(0, 0)
+
+            /* Apply vertical impulse */
+            hero.physicsBody?.applyImpulse(CGVectorMake(0, 250))
+        }
+        
+        if self.selectWhatever.controlType == 0 {
+            touched = true
+            print("doggo")
+        }
+        
+        /*while touched {
+            /* Apply vertical impulse */
+            hero.physicsBody?.applyImpulse(CGVectorMake(0, 0.000000000001))
+            print(hero.physicsBody?.applyImpulse(CGVectorMake(0, 0.000000000001)))
+        }*/
+        
         
         /* Apply subtle rotation */
         hero.physicsBody?.applyAngularImpulse(1)
@@ -117,15 +139,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         /* Grab current velocity */
         let velocityY = hero.physicsBody?.velocity.dy ?? 0
         
-        /* Check and cap vertical velocity */
-        if velocityY > 400 {
-            hero.physicsBody?.velocity.dy = 400
+        if self.selectWhatever.controlType == 1 {
+            if velocityY > 400 {
+                hero.physicsBody?.velocity.dy = 400
+            }
         }
+        if self.selectWhatever.controlType == 0 {
+            if velocityY > 300 {
+                hero.physicsBody?.velocity.dy = 300
+            }
+        }
+        
         
         /* Apply falling rotation */
         if sinceTouch > 0.1 {
             let impulse = -20000 * fixedDelta
             hero.physicsBody?.applyAngularImpulse(CGFloat(impulse))
+        }
+        
+        if touched {
+            /* Apply vertical impulse */
+            hero.physicsBody?.applyImpulse(CGVectorMake(0, 1.75))
+            print("continue")
+            
         }
         
         /* Clamp rotation */
@@ -260,5 +296,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         /* Show restart button */
         buttonRestart.state = .Active
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        touched = false
+        if touched == false{
+            print("over")
+            
+        }
+        if self.selectWhatever.controlType == 1 {
+            /* Reset velocity, helps improve response against cumulative falling velocity */
+            //hero.physicsBody?.velocity = CGVectorMake(0, 0)
+
+        }
     }
 }
