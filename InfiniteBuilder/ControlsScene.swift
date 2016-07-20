@@ -19,6 +19,11 @@ class ControlsScene: SKScene {
     
     var buttonControlJetPack: MSButtonNode!
     
+    var jetpackBack: SKSpriteNode!
+    
+    var flappyBack: SKSpriteNode!
+    
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
@@ -28,6 +33,19 @@ class ControlsScene: SKScene {
         buttonControlFlappy = self.childNodeWithName("buttonControlFlappy") as! MSButtonNode
         
         buttonControlJetPack = self.childNodeWithName("buttonControlJetPack") as! MSButtonNode
+        
+        jetpackBack = self.childNodeWithName("jetpackBack") as! SKSpriteNode
+        
+        flappyBack = self.childNodeWithName("flappyBack") as! SKSpriteNode
+        
+        if self.selectWhatever.controlType == 1 {
+            self.jetpackBack.color = .blueColor()
+            self.flappyBack.color = .greenColor()
+        }
+        if self.selectWhatever.controlType == 0 {
+            self.jetpackBack.color = .greenColor()
+            self.flappyBack.color = .blueColor()
+        }
         
         /* Setup restart button selection handler */
         buttonReturn.selectedHandler = {
@@ -39,10 +57,14 @@ class ControlsScene: SKScene {
         
         buttonControlJetPack.selectedHandler = {
             self.selectWhatever.controlType = 0
+            self.jetpackBack.color = .greenColor()
+            self.flappyBack.color = .blueColor()
         }
         
         buttonControlFlappy.selectedHandler = {
             self.selectWhatever.controlType = 1
+            self.jetpackBack.color = .blueColor()
+            self.flappyBack.color = .greenColor()
         }
     }
 }

@@ -153,7 +153,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         if touched {
             /* Apply vertical impulse */
-            hero.physicsBody?.applyImpulse(CGVectorMake(0, 1.9))
+            hero.physicsBody?.applyImpulse(CGVectorMake(0, 2))
             
         }
         

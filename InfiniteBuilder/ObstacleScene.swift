@@ -21,6 +21,12 @@ class ObstacleScene: SKScene {
     
     var selectWhatever: SelectScene!
     
+    var goalBack: SKSpriteNode!
+    
+    var spikeWallBack: SKSpriteNode!
+    
+    var funnelBack: SKSpriteNode!
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
@@ -33,6 +39,14 @@ class ObstacleScene: SKScene {
         
         buttonFunnel = self.childNodeWithName("buttonFunnel") as! MSButtonNode
         
+        goalBack = self.childNodeWithName("goalBack") as! SKSpriteNode
+        
+        spikeWallBack = self.childNodeWithName("spikeWallBack") as! SKSpriteNode
+        
+        funnelBack = self.childNodeWithName("funnelBack") as! SKSpriteNode
+        
+        
+        
         /* Setup restart button selection handler */
         buttonReturn.selectedHandler = {
             /* Grab reference to our SpriteKit view */
@@ -40,33 +54,64 @@ class ObstacleScene: SKScene {
             skView.presentScene(self.selectWhatever)
         }
         
+        if self.selectWhatever.timesPressedGoals % 2 != 0 {
+            self.goalBack.color = .greenColor()
+            
+        }
+        if self.selectWhatever.timesPressedGoals % 2 == 0 {
+            self.goalBack.color = .blueColor()
+        }
+        
         buttonGoal.selectedHandler = {
             self.selectWhatever.timesPressedGoals += 1
             if self.selectWhatever.timesPressedGoals % 2 != 0 {
                 self.selectWhatever.obstacles[0] = 1
+                self.goalBack.color = .greenColor()
+                
             }
             if self.selectWhatever.timesPressedGoals % 2 == 0 {
                 self.selectWhatever.obstacles[0] = 0
+                self.goalBack.color = .blueColor()
             }
-            
         }
+        
+        if self.selectWhatever.timesPressedSpikeWall % 2 != 0 {
+            self.spikeWallBack.color = .greenColor()
+        }
+        if self.selectWhatever.timesPressedSpikeWall % 2 == 0 {
+            self.spikeWallBack.color = .blueColor()
+        }
+        
         buttonSpikeWall.selectedHandler = {
             self.selectWhatever.timesPressedSpikeWall += 1
             if self.selectWhatever.timesPressedSpikeWall % 2 != 0 {
                 self.selectWhatever.obstacles[1] = 2
+                self.spikeWallBack.color = .greenColor()
             }
             if self.selectWhatever.timesPressedSpikeWall % 2 == 0 {
                 self.selectWhatever.obstacles[1] = 0
+                self.spikeWallBack.color = .blueColor()
             }
-            print(self.selectWhatever.timesPressedSpikeWall)
         }
+        
+        if self.selectWhatever.timesPressedFunnel % 2 != 0 {
+            self.funnelBack.color = .greenColor()
+            
+        }
+        if self.selectWhatever.timesPressedFunnel % 2 == 0 {
+            self.funnelBack.color = .blueColor()
+        }
+        
         buttonFunnel.selectedHandler = {
             self.selectWhatever.timesPressedFunnel += 1
             if self.selectWhatever.timesPressedFunnel % 2 != 0 {
                 self.selectWhatever.obstacles[2] = 3
+                self.funnelBack.color = .greenColor()
+                
             }
             if self.selectWhatever.timesPressedFunnel % 2 == 0 {
                 self.selectWhatever.obstacles[2] = 0
+                self.funnelBack.color = .blueColor()
             }
         }
     }

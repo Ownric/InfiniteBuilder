@@ -27,6 +27,12 @@ class SpeedScene: SKScene {
     
     var selectWhatever: SelectScene!
     
+    var slowBack: SKSpriteNode!
+    
+    var mediumBack: SKSpriteNode!
+    
+    var fastBack: SKSpriteNode!
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
@@ -39,6 +45,28 @@ class SpeedScene: SKScene {
         
         buttonSpeedSlow = self.childNodeWithName("buttonSpeedSlow") as! MSButtonNode
         
+        slowBack = self.childNodeWithName("slowBack") as! SKSpriteNode
+        
+        mediumBack = self.childNodeWithName("mediumBack") as! SKSpriteNode
+        
+        fastBack = self.childNodeWithName("fastBack") as! SKSpriteNode
+        
+        if self.selectWhatever.scrollSpeed == 240 {
+            self.slowBack.color = .greenColor()
+            self.mediumBack.color = .blueColor()
+            self.fastBack.color = .blueColor()
+        }
+        if self.selectWhatever.scrollSpeed == 280 {
+            self.slowBack.color = .blueColor()
+            self.mediumBack.color = .greenColor()
+            self.fastBack.color = .blueColor()
+        }
+        if self.selectWhatever.scrollSpeed == 320 {
+            self.slowBack.color = .blueColor()
+            self.mediumBack.color = .blueColor()
+            self.fastBack.color = .greenColor()
+        }
+        
         /* Setup restart button selection handler */
         buttonReturn.selectedHandler = {
             /* Grab reference to our SpriteKit view */
@@ -46,13 +74,25 @@ class SpeedScene: SKScene {
             skView.presentScene(self.selectWhatever)
         }
         buttonSpeedFast.selectedHandler = {
-            self.selectWhatever.scrollSpeed = 280
+            self.selectWhatever.scrollSpeed = 320
+            
+            self.slowBack.color = .blueColor()
+            self.mediumBack.color = .blueColor()
+            self.fastBack.color = .greenColor()
         }
         buttonSpeedMedium.selectedHandler = {
-            self.selectWhatever.scrollSpeed = 240
+            self.selectWhatever.scrollSpeed = 280
+            
+            self.slowBack.color = .blueColor()
+            self.mediumBack.color = .greenColor()
+            self.fastBack.color = .blueColor()
         }
         buttonSpeedSlow.selectedHandler = {
-            self.selectWhatever.scrollSpeed = 200
+            self.selectWhatever.scrollSpeed = 240
+            
+            self.slowBack.color = .greenColor()
+            self.mediumBack.color = .blueColor()
+            self.fastBack.color = .blueColor()
         }
     }
 }
