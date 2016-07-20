@@ -46,10 +46,10 @@ class SpeedScene: SKScene {
             skView.presentScene(self.selectWhatever)
         }
         buttonSpeedFast.selectedHandler = {
-            self.selectWhatever.scrollSpeed = 400
+            self.selectWhatever.scrollSpeed = 280
         }
         buttonSpeedMedium.selectedHandler = {
-            self.selectWhatever.scrollSpeed = 300
+            self.selectWhatever.scrollSpeed = 240
         }
         buttonSpeedSlow.selectedHandler = {
             self.selectWhatever.scrollSpeed = 200

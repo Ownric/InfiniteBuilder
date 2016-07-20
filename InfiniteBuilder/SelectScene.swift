@@ -8,8 +8,6 @@
 
 import SpriteKit
 
-import SpriteKit
-
 class SelectScene: SKScene {
     
     /* UI Connections */
@@ -28,6 +26,14 @@ class SelectScene: SKScene {
     var highScore: Int = 0
     
     var controlType: Int = 1
+    
+    var obstacles: [Int] = [1, 0, 0]
+    
+    var timesPressedGoals: Int = 1
+    
+    var timesPressedSpikeWall: Int = 0
+    
+    var timesPressedFunnel: Int = 0
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -86,8 +92,6 @@ class SelectScene: SKScene {
             
             /* Start game scene */
             skView.presentScene(scene)
-            
-            print(self.scrollSpeed)
         }
         
         /* Setup play button selection handler */

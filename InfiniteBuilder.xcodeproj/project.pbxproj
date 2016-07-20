@@ -22,6 +22,8 @@
 		A54FDE8B1D36ACD000A1E4A0 /* SelectScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A54FDE8A1D36ACD000A1E4A0 /* SelectScene.sks */; };
 		A54FDE8D1D36AD8000A1E4A0 /* SelectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FDE8C1D36AD8000A1E4A0 /* SelectScene.swift */; };
 		A54FDE8F1D36BA4D00A1E4A0 /* ControlsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FDE8E1D36BA4D00A1E4A0 /* ControlsScene.swift */; };
+		A55C0D3F1D3E89DE000E8CBC /* ObstacleThree.sks in Resources */ = {isa = PBXBuildFile; fileRef = A55C0D3E1D3E89DE000E8CBC /* ObstacleThree.sks */; };
+		A55C0D411D3E8F41000E8CBC /* ObstacleTwo.sks in Resources */ = {isa = PBXBuildFile; fileRef = A55C0D401D3E8F41000E8CBC /* ObstacleTwo.sks */; };
 		A57C3E791D36CDC900EB7F07 /* ControlsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A57C3E781D36CDC900EB7F07 /* ControlsScene.sks */; };
 		A57C3E7B1D36D95C00EB7F07 /* ObstacleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A57C3E7A1D36D95C00EB7F07 /* ObstacleScene.sks */; };
 		A57C3E7D1D36D97000EB7F07 /* ObstacleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C3E7C1D36D97000EB7F07 /* ObstacleScene.swift */; };
@@ -49,6 +51,8 @@
 		A54FDE8A1D36ACD000A1E4A0 /* SelectScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SelectScene.sks; sourceTree = "<group>"; };
 		A54FDE8C1D36AD8000A1E4A0 /* SelectScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectScene.swift; sourceTree = "<group>"; };
 		A54FDE8E1D36BA4D00A1E4A0 /* ControlsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlsScene.swift; sourceTree = "<group>"; };
+		A55C0D3E1D3E89DE000E8CBC /* ObstacleThree.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ObstacleThree.sks; sourceTree = "<group>"; };
+		A55C0D401D3E8F41000E8CBC /* ObstacleTwo.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ObstacleTwo.sks; sourceTree = "<group>"; };
 		A57C3E781D36CDC900EB7F07 /* ControlsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ControlsScene.sks; sourceTree = "<group>"; };
 		A57C3E7A1D36D95C00EB7F07 /* ObstacleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ObstacleScene.sks; sourceTree = "<group>"; };
 		A57C3E7C1D36D97000EB7F07 /* ObstacleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleScene.swift; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 				A54FDE6A1D36A84800A1E4A0 /* AppDelegate.swift */,
 				A54FDE6C1D36A84800A1E4A0 /* GameScene.sks */,
 				A57C3E851D36EEAB00EB7F07 /* Obstacle.sks */,
+				A55C0D3E1D3E89DE000E8CBC /* ObstacleThree.sks */,
+				A55C0D401D3E8F41000E8CBC /* ObstacleTwo.sks */,
 				A57C3E831D36EC6100EB7F07 /* Hero.sks */,
 				A54FDE6E1D36A84800A1E4A0 /* GameScene.swift */,
 				A54FDE701D36A84800A1E4A0 /* GameViewController.swift */,
@@ -183,6 +189,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A54FDE6D1D36A84800A1E4A0 /* GameScene.sks in Resources */,
+				A55C0D411D3E8F41000E8CBC /* ObstacleTwo.sks in Resources */,
+				A55C0D3F1D3E89DE000E8CBC /* ObstacleThree.sks in Resources */,
 				A54FDE791D36A84800A1E4A0 /* LaunchScreen.storyboard in Resources */,
 				A54FDE851D36AA1700A1E4A0 /* MainScene.sks in Resources */,
 				A57C3E841D36EC6100EB7F07 /* Hero.sks in Resources */,

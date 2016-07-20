@@ -8,6 +8,9 @@
 
 import SpriteKit
 
+import UIKit
+
+import Darwin
 
 class GameScene: SKScene, SKPhysicsContactDelegate{
     
@@ -117,6 +120,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         /* Reset touch timer */
         sinceTouch = 0
         
+        print(self.selectWhatever.obstacles)
+        
     }
     
     override func update(currentTime: CFTimeInterval) {
@@ -148,7 +153,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         if touched {
             /* Apply vertical impulse */
-            hero.physicsBody?.applyImpulse(CGVectorMake(0, 1.75))
+            hero.physicsBody?.applyImpulse(CGVectorMake(0, 1.9))
             
         }
         
@@ -201,7 +206,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             let obstaclePosition = obstacleLayer.convertPoint(obstacle.position, toNode: self)
             
             /* Check if obstacle has left the scene */
-            if obstaclePosition.x <= 0 {
+            if obstaclePosition.x <= -50 {
                 
                 /* Remove obstacle node from obstacle layer */
                 obstacle.removeFromParent()
@@ -210,21 +215,77 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }
         
         /* Time to add a new obstacle? */
+        
         if spawnTimer >= 1.5 {
+            var choiceList: [Int] = []
+            var choiceCount: Int = 0
+            for x in self.selectWhatever.obstacles {
+                if x != 0{
+                    choiceList.append(x)
+                    choiceCount += 1
+                }
+            }
+            let obstacleType = choiceList[Int(arc4random_uniform(UInt32(choiceCount)))] //here
             
-            /* Create a new obstacle reference object using our obstacle resource */
-            let resourcePath = NSBundle.mainBundle().pathForResource("Obstacle", ofType: "sks")
-            let newObstacle = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
-            obstacleLayer.addChild(newObstacle)
+            if obstacleType == 1 {
+                /* Create a new obstacle reference object using our obstacle resource */
+                let resourcePath = NSBundle.mainBundle().pathForResource("Obstacle", ofType: "sks")
+                let newObstacle = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
+                obstacleLayer.addChild(newObstacle)
+                
+                /* Generate new obstacle position, start just outside screen and with a random y value */
+                let randomPosition = CGPointMake(352, CGFloat.random(min: 234, max: 382))
+                
+                /* Convert new node position back to obstacle layer space */
+                newObstacle.position = self.convertPoint(randomPosition, toNode: obstacleLayer)
+                
+                // Reset spawn timer
+                spawnTimer = 0
+                print(obstacleType)
+            }
+            if obstacleType == 2 {
+                
+                let potentialFlip = Int(arc4random_uniform(UInt32(2)))
+                
+                /* Create a new obstacle reference object using our obstacle resource */
+                let resourcePath = NSBundle.mainBundle().pathForResource("ObstacleTwo", ofType: "sks")
+                let newObstacle = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
+                obstacleLayer.addChild(newObstacle)
+                if potentialFlip == 0 {
+                    /* Generate new obstacle position, start just outside screen and with a random y value */
+                    let randomPosition = CGPointMake(352, CGFloat.random(min: 288, max: 289))
+                    
+                    /* Convert new node position back to obstacle layer space */
+                    newObstacle.position = self.convertPoint(randomPosition, toNode: obstacleLayer)
+                    newObstacle.yScale = newObstacle.yScale * 1
+                }
+                if potentialFlip == 1 {
+                    /* Generate new obstacle position, start just outside screen and with a random y value */
+                    let randomPosition = CGPointMake(352, CGFloat.random(min: 300, max: 301))
+                    
+                    /* Convert new node position back to obstacle layer space */
+                    newObstacle.position = self.convertPoint(randomPosition, toNode: obstacleLayer)
+                    newObstacle.yScale = newObstacle.yScale * -1
+                }
+                spawnTimer = 0
+            }
+            if obstacleType == 3 {
+                /* Create a new obstacle reference object using our obstacle resource */
+                let resourcePath = NSBundle.mainBundle().pathForResource("ObstacleThree", ofType: "sks")
+                let newObstacle = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
+                obstacleLayer.addChild(newObstacle)
+                
+                /* Generate new obstacle position, start just outside screen and with a random y value */
+                let randomPosition = CGPointMake(352, CGFloat.random(min: 254, max: 342))
+                
+                /* Convert new node position back to obstacle layer space */
+                newObstacle.position = self.convertPoint(randomPosition, toNode: obstacleLayer)
+                
+                // Reset spawn timer
+                spawnTimer = 0
+                print(obstacleType)
+            }
             
-            /* Generate new obstacle position, start just outside screen and with a random y value */
-            let randomPosition = CGPointMake(352, CGFloat.random(min: 234, max: 382))
-            
-            /* Convert new node position back to obstacle layer space */
-            newObstacle.position = self.convertPoint(randomPosition, toNode: obstacleLayer)
-            
-            // Reset spawn timer
-            spawnTimer = 0
         }
         
     }
@@ -253,6 +314,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         /* Ensure only called while game running */
         if gameState != .Active { return }
+        
         
         /* Hero touches anything, game over */
         
