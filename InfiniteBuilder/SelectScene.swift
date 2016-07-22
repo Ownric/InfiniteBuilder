@@ -27,9 +27,9 @@ class SelectScene: SKScene {
     
     var controlType: Int = 1
     
-    var obstacles: [Int] = [1, 0, 0]
+    var obstacles: [Int] = [0, 0, 0]
     
-    var timesPressedGoals: Int = 1
+    var timesPressedGoals: Int = 0
     
     var timesPressedSpikeWall: Int = 0
     

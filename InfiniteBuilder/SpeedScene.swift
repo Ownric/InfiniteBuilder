@@ -56,12 +56,12 @@ class SpeedScene: SKScene {
             self.mediumBack.color = .blueColor()
             self.fastBack.color = .blueColor()
         }
-        if self.selectWhatever.scrollSpeed == 280 {
+        if self.selectWhatever.scrollSpeed == 300 {
             self.slowBack.color = .blueColor()
             self.mediumBack.color = .greenColor()
             self.fastBack.color = .blueColor()
         }
-        if self.selectWhatever.scrollSpeed == 320 {
+        if self.selectWhatever.scrollSpeed == 360 {
             self.slowBack.color = .blueColor()
             self.mediumBack.color = .blueColor()
             self.fastBack.color = .greenColor()
@@ -74,14 +74,14 @@ class SpeedScene: SKScene {
             skView.presentScene(self.selectWhatever)
         }
         buttonSpeedFast.selectedHandler = {
-            self.selectWhatever.scrollSpeed = 320
+            self.selectWhatever.scrollSpeed = 360
             
             self.slowBack.color = .blueColor()
             self.mediumBack.color = .blueColor()
             self.fastBack.color = .greenColor()
         }
         buttonSpeedMedium.selectedHandler = {
-            self.selectWhatever.scrollSpeed = 280
+            self.selectWhatever.scrollSpeed = 300
             
             self.slowBack.color = .blueColor()
             self.mediumBack.color = .greenColor()

@@ -206,7 +206,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             let obstaclePosition = obstacleLayer.convertPoint(obstacle.position, toNode: self)
             
             /* Check if obstacle has left the scene */
-            if obstaclePosition.x <= -50 {
+            if obstaclePosition.x <= -150 {
                 
                 /* Remove obstacle node from obstacle layer */
                 obstacle.removeFromParent()
@@ -234,7 +234,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 obstacleLayer.addChild(newObstacle)
                 
                 /* Generate new obstacle position, start just outside screen and with a random y value */
-                let randomPosition = CGPointMake(352, CGFloat.random(min: 234, max: 382))
+                let randomPosition = CGPointMake(452, CGFloat.random(min: 234, max: 382))
                 
                 /* Convert new node position back to obstacle layer space */
                 newObstacle.position = self.convertPoint(randomPosition, toNode: obstacleLayer)
@@ -253,7 +253,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 obstacleLayer.addChild(newObstacle)
                 if potentialFlip == 0 {
                     /* Generate new obstacle position, start just outside screen and with a random y value */
-                    let randomPosition = CGPointMake(352, CGFloat.random(min: 288, max: 289))
+                    let randomPosition = CGPointMake(452, CGFloat.random(min: 288, max: 289))
                     
                     /* Convert new node position back to obstacle layer space */
                     newObstacle.position = self.convertPoint(randomPosition, toNode: obstacleLayer)
@@ -261,7 +261,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 }
                 if potentialFlip == 1 {
                     /* Generate new obstacle position, start just outside screen and with a random y value */
-                    let randomPosition = CGPointMake(352, CGFloat.random(min: 300, max: 301))
+                    let randomPosition = CGPointMake(452, CGFloat.random(min: 300, max: 301))
                     
                     /* Convert new node position back to obstacle layer space */
                     newObstacle.position = self.convertPoint(randomPosition, toNode: obstacleLayer)
@@ -276,7 +276,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 obstacleLayer.addChild(newObstacle)
                 
                 /* Generate new obstacle position, start just outside screen and with a random y value */
-                let randomPosition = CGPointMake(352, CGFloat.random(min: 254, max: 342))
+                let randomPosition = CGPointMake(452, CGFloat.random(min: 254, max: 342))
                 
                 /* Convert new node position back to obstacle layer space */
                 newObstacle.position = self.convertPoint(randomPosition, toNode: obstacleLayer)
@@ -301,15 +301,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         /* Did our hero pass through the 'goal'? */
         if nodeA.name == "goal" || nodeB.name == "goal" {
-            
-            /* Increment points */
-            points += 1
-            
-            /* Update score label */
-            scoreLabel.text = String(points)
-            
-            /* We can return now */
-            return
+            if gameState == .Active {
+                /* Increment points */
+                points += 1
+                
+                /* Update score label */
+                scoreLabel.text = String(points)
+                
+                /* We can return now */
+                return
+            }
         }
         
         /* Ensure only called while game running */
