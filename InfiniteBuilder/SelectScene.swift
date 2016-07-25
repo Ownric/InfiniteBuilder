@@ -23,17 +23,21 @@ class SelectScene: SKScene {
     
     var scrollSpeed: CGFloat = 240
     
+    var speedType: CGFloat = 240
+    
     var highScore: Int = 0
     
     var controlType: Int = 1
     
-    var obstacles: [Int] = [0, 0, 0]
+    var obstacles: [Int] = [1, 2, 3, 4]
     
-    var timesPressedGoals: Int = 0
+    var timesPressedGoals: Int = 1
     
-    var timesPressedSpikeWall: Int = 0
+    var timesPressedSpikeWall: Int = 1
     
-    var timesPressedFunnel: Int = 0
+    var timesPressedFunnel: Int = 1
+    
+    var timesPressedSquareMaze: Int = 1
     
     var playBackground: SKSpriteNode!
     

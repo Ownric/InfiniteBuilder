@@ -34,11 +34,13 @@
 		A57C3E821D36DDA300EB7F07 /* SpeedScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A57C3E811D36DDA300EB7F07 /* SpeedScene.sks */; };
 		A57C3E841D36EC6100EB7F07 /* Hero.sks in Resources */ = {isa = PBXBuildFile; fileRef = A57C3E831D36EC6100EB7F07 /* Hero.sks */; };
 		A57C3E861D36EEAB00EB7F07 /* Obstacle.sks in Resources */ = {isa = PBXBuildFile; fileRef = A57C3E851D36EEAB00EB7F07 /* Obstacle.sks */; };
+		A5BA9F781D42D155006A0DE2 /* ObstacleFour.sks in Resources */ = {isa = PBXBuildFile; fileRef = A5BA9F771D42D155006A0DE2 /* ObstacleFour.sks */; };
 		A5E7E25A1D41333B00B26491 /* GreetingsTutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = A5E7E2591D41333B00B26491 /* GreetingsTutorial.sks */; };
 		A5E7E25D1D41363900B26491 /* GreetingsTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7E25C1D41363800B26491 /* GreetingsTutorial.swift */; };
 		A5E7E25F1D41381D00B26491 /* ControlsTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7E25E1D41381D00B26491 /* ControlsTutorial.swift */; };
 		A5E7E2611D41384300B26491 /* ControlsTutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = A5E7E2601D41384300B26491 /* ControlsTutorial.sks */; };
 		A5E7E2631D415C8500B26491 /* ObstaclesTutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = A5E7E2621D415C8500B26491 /* ObstaclesTutorial.sks */; };
+		A5F063AE1D4671B4005EAFB5 /* ObstacleFive.sks in Resources */ = {isa = PBXBuildFile; fileRef = A5F063AD1D4671B4005EAFB5 /* ObstacleFive.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,11 +73,13 @@
 		A57C3E811D36DDA300EB7F07 /* SpeedScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SpeedScene.sks; sourceTree = "<group>"; };
 		A57C3E831D36EC6100EB7F07 /* Hero.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Hero.sks; sourceTree = "<group>"; };
 		A57C3E851D36EEAB00EB7F07 /* Obstacle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Obstacle.sks; sourceTree = "<group>"; };
+		A5BA9F771D42D155006A0DE2 /* ObstacleFour.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = ObstacleFour.sks; path = ../ObstacleFour.sks; sourceTree = "<group>"; };
 		A5E7E2591D41333B00B26491 /* GreetingsTutorial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GreetingsTutorial.sks; sourceTree = "<group>"; };
 		A5E7E25C1D41363800B26491 /* GreetingsTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreetingsTutorial.swift; sourceTree = "<group>"; };
 		A5E7E25E1D41381D00B26491 /* ControlsTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlsTutorial.swift; sourceTree = "<group>"; };
 		A5E7E2601D41384300B26491 /* ControlsTutorial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ControlsTutorial.sks; sourceTree = "<group>"; };
 		A5E7E2621D415C8500B26491 /* ObstaclesTutorial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ObstaclesTutorial.sks; sourceTree = "<group>"; };
+		A5F063AD1D4671B4005EAFB5 /* ObstacleFive.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ObstacleFive.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,12 +114,10 @@
 			children = (
 				A54FDE6A1D36A84800A1E4A0 /* AppDelegate.swift */,
 				A54FDE6C1D36A84800A1E4A0 /* GameScene.sks */,
-				A57C3E851D36EEAB00EB7F07 /* Obstacle.sks */,
-				A55C0D401D3E8F41000E8CBC /* ObstacleTwo.sks */,
-				A55C0D3E1D3E89DE000E8CBC /* ObstacleThree.sks */,
 				A57C3E831D36EC6100EB7F07 /* Hero.sks */,
 				A54FDE6E1D36A84800A1E4A0 /* GameScene.swift */,
 				A54FDE701D36A84800A1E4A0 /* GameViewController.swift */,
+				A5BA9F761D42D10C006A0DE2 /* Obstacles */,
 				A5E7E25B1D41334B00B26491 /* TutorialScenes */,
 				A57C3E7E1D36D97C00EB7F07 /* ButtonScenes */,
 				A54FDE721D36A84800A1E4A0 /* Main.storyboard */,
@@ -144,6 +146,18 @@
 				A54FDE861D36AA2100A1E4A0 /* MainScene.swift */,
 			);
 			name = ButtonScenes;
+			sourceTree = "<group>";
+		};
+		A5BA9F761D42D10C006A0DE2 /* Obstacles */ = {
+			isa = PBXGroup;
+			children = (
+				A57C3E851D36EEAB00EB7F07 /* Obstacle.sks */,
+				A55C0D401D3E8F41000E8CBC /* ObstacleTwo.sks */,
+				A55C0D3E1D3E89DE000E8CBC /* ObstacleThree.sks */,
+				A5BA9F771D42D155006A0DE2 /* ObstacleFour.sks */,
+				A5F063AD1D4671B4005EAFB5 /* ObstacleFive.sks */,
+			);
+			name = Obstacles;
 			sourceTree = "<group>";
 		};
 		A5E7E25B1D41334B00B26491 /* TutorialScenes */ = {
@@ -220,10 +234,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5BA9F781D42D155006A0DE2 /* ObstacleFour.sks in Resources */,
 				A54FDE6D1D36A84800A1E4A0 /* GameScene.sks in Resources */,
 				A55C0D411D3E8F41000E8CBC /* ObstacleTwo.sks in Resources */,
 				A55C0D3F1D3E89DE000E8CBC /* ObstacleThree.sks in Resources */,
 				A54FDE791D36A84800A1E4A0 /* LaunchScreen.storyboard in Resources */,
+				A5F063AE1D4671B4005EAFB5 /* ObstacleFive.sks in Resources */,
 				A54FDE851D36AA1700A1E4A0 /* MainScene.sks in Resources */,
 				A57C3E841D36EC6100EB7F07 /* Hero.sks in Resources */,
 				A5E7E2611D41384300B26491 /* ControlsTutorial.sks in Resources */,

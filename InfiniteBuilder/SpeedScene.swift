@@ -75,6 +75,7 @@ class SpeedScene: SKScene {
         }
         buttonSpeedFast.selectedHandler = {
             self.selectWhatever.scrollSpeed = 360
+            self.selectWhatever.speedType = 360
             
             self.slowBack.color = .blueColor()
             self.mediumBack.color = .blueColor()
@@ -82,6 +83,7 @@ class SpeedScene: SKScene {
         }
         buttonSpeedMedium.selectedHandler = {
             self.selectWhatever.scrollSpeed = 300
+            self.selectWhatever.speedType = 300
             
             self.slowBack.color = .blueColor()
             self.mediumBack.color = .greenColor()
@@ -89,6 +91,7 @@ class SpeedScene: SKScene {
         }
         buttonSpeedSlow.selectedHandler = {
             self.selectWhatever.scrollSpeed = 240
+            self.selectWhatever.speedType = 240
             
             self.slowBack.color = .greenColor()
             self.mediumBack.color = .blueColor()

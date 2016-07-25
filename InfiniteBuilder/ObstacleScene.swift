@@ -19,6 +19,8 @@ class ObstacleScene: SKScene {
     
     var buttonFunnel: MSButtonNode!
     
+    var buttonSquareMaze: MSButtonNode!
+    
     var selectWhatever: SelectScene!
     
     var goalBack: SKSpriteNode!
@@ -26,6 +28,8 @@ class ObstacleScene: SKScene {
     var spikeWallBack: SKSpriteNode!
     
     var funnelBack: SKSpriteNode!
+    
+    var squareMazeBack: SKSpriteNode!
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -39,13 +43,15 @@ class ObstacleScene: SKScene {
         
         buttonFunnel = self.childNodeWithName("buttonFunnel") as! MSButtonNode
         
+        buttonSquareMaze = self.childNodeWithName("buttonSquareMaze") as! MSButtonNode
+        
         goalBack = self.childNodeWithName("goalBack") as! SKSpriteNode
         
         spikeWallBack = self.childNodeWithName("spikeWallBack") as! SKSpriteNode
         
         funnelBack = self.childNodeWithName("funnelBack") as! SKSpriteNode
         
-        
+        squareMazeBack = self.childNodeWithName("squareMazeBack") as! SKSpriteNode
         
         /* Setup restart button selection handler */
         buttonReturn.selectedHandler = {
@@ -112,6 +118,27 @@ class ObstacleScene: SKScene {
             if self.selectWhatever.timesPressedFunnel % 2 == 0 {
                 self.selectWhatever.obstacles[2] = 0
                 self.funnelBack.color = .blueColor()
+            }
+        }
+        
+        if self.selectWhatever.timesPressedSquareMaze % 2 != 0 {
+            self.squareMazeBack.color = .greenColor()
+            
+        }
+        if self.selectWhatever.timesPressedSquareMaze % 2 == 0 {
+            self.squareMazeBack.color = .blueColor()
+        }
+        
+        buttonSquareMaze.selectedHandler = {
+            self.selectWhatever.timesPressedSquareMaze += 1
+            if self.selectWhatever.timesPressedSquareMaze % 2 != 0 {
+                self.selectWhatever.obstacles[3] = 4
+                self.squareMazeBack.color = .greenColor()
+                
+            }
+            if self.selectWhatever.timesPressedSquareMaze % 2 == 0 {
+                self.selectWhatever.obstacles[3] = 0
+                self.squareMazeBack.color = .blueColor()
             }
         }
     }
