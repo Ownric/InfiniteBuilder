@@ -23,6 +23,8 @@ class ObstacleScene: SKScene {
     
     var buttonReverseFunnel: MSButtonNode!
     
+    var buttonTrap: MSButtonNode!
+    
     var selectWhatever: SelectScene!
     
     var goalBack: SKSpriteNode!
@@ -34,6 +36,8 @@ class ObstacleScene: SKScene {
     var squareMazeBack: SKSpriteNode!
     
     var reverseFunnelBack: SKSpriteNode!
+    
+    var trapBack: SKSpriteNode!
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -51,6 +55,8 @@ class ObstacleScene: SKScene {
         
         buttonReverseFunnel = self.childNodeWithName("buttonReverseFunnel") as! MSButtonNode
         
+        buttonTrap = self.childNodeWithName("buttonTrap") as! MSButtonNode
+        
         goalBack = self.childNodeWithName("goalBack") as! SKSpriteNode
         
         spikeWallBack = self.childNodeWithName("spikeWallBack") as! SKSpriteNode
@@ -60,6 +66,8 @@ class ObstacleScene: SKScene {
         squareMazeBack = self.childNodeWithName("squareMazeBack") as! SKSpriteNode
         
         reverseFunnelBack = self.childNodeWithName("reverseFunnelBack") as! SKSpriteNode
+        
+        trapBack = self.childNodeWithName("trapBack") as! SKSpriteNode
         
         /* Setup restart button selection handler */
         buttonReturn.selectedHandler = {
@@ -168,6 +176,27 @@ class ObstacleScene: SKScene {
             if self.selectWhatever.timesPressedReverseFunnel % 2 == 0 {
                 self.selectWhatever.obstacles[4] = 0
                 self.reverseFunnelBack.color = .blueColor()
+            }
+        }
+        
+        if self.selectWhatever.timesPressedTrap % 2 != 0 {
+            self.trapBack.color = .greenColor()
+            
+        }
+        if self.selectWhatever.timesPressedTrap % 2 == 0 {
+            self.trapBack.color = .blueColor()
+        }
+        
+        buttonTrap.selectedHandler = {
+            self.selectWhatever.timesPressedTrap += 1
+            if self.selectWhatever.timesPressedTrap % 2 != 0 {
+                self.selectWhatever.obstacles[5] = 6
+                self.trapBack.color = .greenColor()
+                
+            }
+            if self.selectWhatever.timesPressedTrap % 2 == 0 {
+                self.selectWhatever.obstacles[5] = 0
+                self.trapBack.color = .blueColor()
             }
         }
     }

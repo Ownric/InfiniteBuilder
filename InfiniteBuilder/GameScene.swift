@@ -46,6 +46,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     /* UI Connections */
     var buttonRestart: MSButtonNode!
     
+    var buttonPause: MSButtonNode!
+    
     var points = 0
     
     var test: Int = 0
@@ -323,6 +325,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 
                 /* Generate new obstacle position, start just outside screen and with a random y value */
                 let randomPosition = CGPointMake(452, CGFloat.random(min: 254, max: 342))
+                
+                /* Convert new node position back to obstacle layer space */
+                newObstacle.position = self.convertPoint(randomPosition, toNode: obstacleLayer)
+                
+                // Reset spawn timer
+                spawnTimer = 0
+            }
+            
+            if obstacleType == 6 {
+                /* Create a new obstacle reference object using our obstacle resource */
+                let resourcePath = NSBundle.mainBundle().pathForResource("ObstacleSix", ofType: "sks")
+                let newObstacle = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
+                obstacleLayer.addChild(newObstacle)
+                
+                /* Generate new obstacle position, start just outside screen and with a random y value */
+                let randomPosition = CGPointMake(452, CGFloat.random(min: 234, max: 382))
                 
                 /* Convert new node position back to obstacle layer space */
                 newObstacle.position = self.convertPoint(randomPosition, toNode: obstacleLayer)

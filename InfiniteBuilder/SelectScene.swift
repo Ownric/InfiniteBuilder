@@ -11,7 +11,7 @@ import SpriteKit
 class SelectScene: SKScene {
     
     /* UI Connections */
-    var buttonReturn: MSButtonNode!
+    var buttonHelp: MSButtonNode!
     
     var buttonTruePlay: MSButtonNode!
     
@@ -25,11 +25,9 @@ class SelectScene: SKScene {
     
     var speedType: CGFloat = 240
     
-    var highScore: Int = 0
+    var controlType: Int = 0
     
-    var controlType: Int = 1
-    
-    var obstacles: [Int] = [1, 2, 3, 4, 5]
+    var obstacles: [Int] = [1, 2, 3, 4, 5, 6]
     
     var timesPressedGoals: Int = 1
     
@@ -41,13 +39,15 @@ class SelectScene: SKScene {
     
     var timesPressedReverseFunnel: Int = 1
     
+    var timesPressedTrap: Int = 1
+    
     var playBackground: SKSpriteNode!
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
         /* Set UI connections */
-        buttonReturn = self.childNodeWithName("buttonReturn") as! MSButtonNode
+        buttonHelp = self.childNodeWithName("buttonHelp") as! MSButtonNode
         
         buttonTruePlay = self.childNodeWithName("buttonTruePlay") as! MSButtonNode
         
@@ -59,21 +59,25 @@ class SelectScene: SKScene {
         
         playBackground = self.childNodeWithName("playBackground") as! SKSpriteNode
         
-        if self.obstacles == [0,0,0] {
+        if self.obstacles == [0,0,0,0,0,0] {
             self.playBackground.alpha = 0.5
         }
-        if self.obstacles != [0,0,0] {
+        if self.obstacles != [0,0,0,0,0,0] {
             self.playBackground.alpha = 1.0
         }
         
+        
+        
         /* Setup restart button selection handler */
-        buttonReturn.selectedHandler = {
+        buttonHelp.selectedHandler = {
             
             /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
             
             /* Load Game scene */
-            let scene = MainScene(fileNamed:"MainScene") as MainScene!
+            let scene = HelpScene(fileNamed:"HelpScene") as HelpScene!
+            
+            scene.selectWhatever = self
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
@@ -89,7 +93,7 @@ class SelectScene: SKScene {
         
         /* Setup play button selection handler */
         buttonTruePlay.selectedHandler = {
-            if self.obstacles != [0,0,0] {
+            if self.obstacles != [0,0,0,0,0,0] {
                 /* Grab reference to our SpriteKit view */
                 let skView = self.view as SKView!
                 
@@ -97,7 +101,7 @@ class SelectScene: SKScene {
                 let scene = GameScene(fileNamed:"GameScene") as GameScene!
                 
                 scene.selectWhatever = self
-                scene.scrollSpeed = self.scrollSpeed //here
+                scene.scrollSpeed = self.scrollSpeed
                 
                 /* Ensure correct aspect mode */
                 scene.scaleMode = .AspectFill
@@ -110,7 +114,6 @@ class SelectScene: SKScene {
                 /* Start game scene */
                 skView.presentScene(scene)
             }
-            
         }
         
         /* Setup play button selection handler */
