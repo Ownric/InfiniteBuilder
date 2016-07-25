@@ -21,6 +21,8 @@ class ObstacleScene: SKScene {
     
     var buttonSquareMaze: MSButtonNode!
     
+    var buttonReverseFunnel: MSButtonNode!
+    
     var selectWhatever: SelectScene!
     
     var goalBack: SKSpriteNode!
@@ -30,6 +32,8 @@ class ObstacleScene: SKScene {
     var funnelBack: SKSpriteNode!
     
     var squareMazeBack: SKSpriteNode!
+    
+    var reverseFunnelBack: SKSpriteNode!
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -45,6 +49,8 @@ class ObstacleScene: SKScene {
         
         buttonSquareMaze = self.childNodeWithName("buttonSquareMaze") as! MSButtonNode
         
+        buttonReverseFunnel = self.childNodeWithName("buttonReverseFunnel") as! MSButtonNode
+        
         goalBack = self.childNodeWithName("goalBack") as! SKSpriteNode
         
         spikeWallBack = self.childNodeWithName("spikeWallBack") as! SKSpriteNode
@@ -52,6 +58,8 @@ class ObstacleScene: SKScene {
         funnelBack = self.childNodeWithName("funnelBack") as! SKSpriteNode
         
         squareMazeBack = self.childNodeWithName("squareMazeBack") as! SKSpriteNode
+        
+        reverseFunnelBack = self.childNodeWithName("reverseFunnelBack") as! SKSpriteNode
         
         /* Setup restart button selection handler */
         buttonReturn.selectedHandler = {
@@ -139,6 +147,27 @@ class ObstacleScene: SKScene {
             if self.selectWhatever.timesPressedSquareMaze % 2 == 0 {
                 self.selectWhatever.obstacles[3] = 0
                 self.squareMazeBack.color = .blueColor()
+            }
+        }
+        
+        if self.selectWhatever.timesPressedReverseFunnel % 2 != 0 {
+            self.reverseFunnelBack.color = .greenColor()
+            
+        }
+        if self.selectWhatever.timesPressedReverseFunnel % 2 == 0 {
+            self.reverseFunnelBack.color = .blueColor()
+        }
+        
+        buttonReverseFunnel.selectedHandler = {
+            self.selectWhatever.timesPressedReverseFunnel += 1
+            if self.selectWhatever.timesPressedReverseFunnel % 2 != 0 {
+                self.selectWhatever.obstacles[4] = 5
+                self.reverseFunnelBack.color = .greenColor()
+                
+            }
+            if self.selectWhatever.timesPressedReverseFunnel % 2 == 0 {
+                self.selectWhatever.obstacles[4] = 0
+                self.reverseFunnelBack.color = .blueColor()
             }
         }
     }

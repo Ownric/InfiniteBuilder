@@ -29,7 +29,7 @@ class SelectScene: SKScene {
     
     var controlType: Int = 1
     
-    var obstacles: [Int] = [1, 2, 3, 4]
+    var obstacles: [Int] = [1, 2, 3, 4, 5]
     
     var timesPressedGoals: Int = 1
     
@@ -38,6 +38,8 @@ class SelectScene: SKScene {
     var timesPressedFunnel: Int = 1
     
     var timesPressedSquareMaze: Int = 1
+    
+    var timesPressedReverseFunnel: Int = 1
     
     var playBackground: SKSpriteNode!
     

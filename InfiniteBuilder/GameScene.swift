@@ -314,6 +314,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 }
                 spawnTimer = 0
             }
+            
+            if obstacleType == 5 {
+                /* Create a new obstacle reference object using our obstacle resource */
+                let resourcePath = NSBundle.mainBundle().pathForResource("ObstacleFive", ofType: "sks")
+                let newObstacle = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
+                obstacleLayer.addChild(newObstacle)
+                
+                /* Generate new obstacle position, start just outside screen and with a random y value */
+                let randomPosition = CGPointMake(452, CGFloat.random(min: 254, max: 342))
+                
+                /* Convert new node position back to obstacle layer space */
+                newObstacle.position = self.convertPoint(randomPosition, toNode: obstacleLayer)
+                
+                // Reset spawn timer
+                spawnTimer = 0
+            }
         }
         
     }
