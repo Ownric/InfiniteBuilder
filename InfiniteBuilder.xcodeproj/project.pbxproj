@@ -44,6 +44,7 @@
 		A5F063B01D467BD2005EAFB5 /* ObstacleSix.sks in Resources */ = {isa = PBXBuildFile; fileRef = A5F063AF1D467BD2005EAFB5 /* ObstacleSix.sks */; };
 		A5F063B21D46AFDF005EAFB5 /* HelpScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A5F063B11D46AFDF005EAFB5 /* HelpScene.sks */; };
 		A5F063B41D46AFFC005EAFB5 /* HelpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F063B31D46AFFC005EAFB5 /* HelpScene.swift */; };
+		A5F063B81D491BB9005EAFB5 /* CharacterActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = A5F063B71D491BB9005EAFB5 /* CharacterActions.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		A5F063AF1D467BD2005EAFB5 /* ObstacleSix.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ObstacleSix.sks; sourceTree = "<group>"; };
 		A5F063B11D46AFDF005EAFB5 /* HelpScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HelpScene.sks; sourceTree = "<group>"; };
 		A5F063B31D46AFFC005EAFB5 /* HelpScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpScene.swift; sourceTree = "<group>"; };
+		A5F063B71D491BB9005EAFB5 /* CharacterActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CharacterActions.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		A54FDE5E1D36A84700A1E4A0 = {
 			isa = PBXGroup;
 			children = (
+				A5F063B71D491BB9005EAFB5 /* CharacterActions.sks */,
 				A54FDE691D36A84800A1E4A0 /* InfiniteBuilder */,
 				A54FDE681D36A84800A1E4A0 /* Products */,
 			);
@@ -119,8 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				A54FDE6A1D36A84800A1E4A0 /* AppDelegate.swift */,
-				A54FDE6C1D36A84800A1E4A0 /* GameScene.sks */,
 				A57C3E831D36EC6100EB7F07 /* Hero.sks */,
+				A54FDE6C1D36A84800A1E4A0 /* GameScene.sks */,
 				A54FDE6E1D36A84800A1E4A0 /* GameScene.swift */,
 				A54FDE701D36A84800A1E4A0 /* GameViewController.swift */,
 				A5BA9F761D42D10C006A0DE2 /* Obstacles */,
@@ -261,6 +264,7 @@
 				A530B4EB1D4178AC0090B999 /* SpeedTutorial.sks in Resources */,
 				A57C3E791D36CDC900EB7F07 /* ControlsScene.sks in Resources */,
 				A5F063B21D46AFDF005EAFB5 /* HelpScene.sks in Resources */,
+				A5F063B81D491BB9005EAFB5 /* CharacterActions.sks in Resources */,
 				A54FDE8B1D36ACD000A1E4A0 /* SelectScene.sks in Resources */,
 				A54FDE741D36A84800A1E4A0 /* Main.storyboard in Resources */,
 				A5F063B01D467BD2005EAFB5 /* ObstacleSix.sks in Resources */,

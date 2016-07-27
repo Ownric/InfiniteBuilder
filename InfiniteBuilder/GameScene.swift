@@ -46,7 +46,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     /* UI Connections */
     var buttonRestart: MSButtonNode!
     
-    var buttonPause: MSButtonNode!
+    var buttonReturn: MSButtonNode!
     
     var points = 0
     
@@ -72,6 +72,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         /* Set UI connections */
         buttonRestart = self.childNodeWithName("buttonRestart") as! MSButtonNode
         
+        buttonReturn = self.childNodeWithName("buttonReturn") as! MSButtonNode
+        
         scoreLabel = self.childNodeWithName("scoreLabel") as! SKLabelNode
         
         /* Setup restart button selection handler */
@@ -81,10 +83,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             let skView = self.view as SKView!
             
             /* Load Game scene */
-            let scene = SelectScene(fileNamed:"SelectScene") as SelectScene! //here
+            let scene = SelectScene(fileNamed:"SelectScene") as SelectScene!
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
+            
+            /* Show debug */
+            skView.showsPhysics = true
+            skView.showsDrawCount = true
+            skView.showsFPS = true
+            
+            self.selectWhatever.restart = true
+            
+            /* Start game scene */
+            skView.presentScene(self.selectWhatever)
+            
+        }
+        
+        /* Setup restart button selection handler */
+        buttonReturn.selectedHandler = {
+            
+            /* Grab reference to our SpriteKit view */
+            let skView = self.view as SKView!
+            
+            /* Load Game scene */
+            let scene = SelectScene(fileNamed:"SelectScene") as SelectScene!
+            
+            /* Ensure correct aspect mode */
+            scene.scaleMode = .AspectFill
+            
+            self.selectWhatever.restart = false
             
             /* Restart game scene */
             skView.presentScene(self.selectWhatever)
@@ -93,6 +121,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         /* Hide restart button */
         buttonRestart.state = .Hidden
+        
+        /* Hide return button */
+        buttonReturn.state = .Hidden
         
         /* Reset Score label */
         scoreLabel.text = String(points)
@@ -409,6 +440,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         /* Show restart button */
         buttonRestart.state = .Active
+        
+        buttonReturn.state = .Active
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {

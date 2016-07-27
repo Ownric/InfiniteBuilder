@@ -104,11 +104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InfiniteBuilder/GameScene.swift"
-            timestampString = "491180027.688302"
+            timestampString = "491349456.963175"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "updateObstacles()"
             landmarkType = "5">
          </BreakpointContent>

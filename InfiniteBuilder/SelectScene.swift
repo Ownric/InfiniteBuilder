@@ -41,6 +41,8 @@ class SelectScene: SKScene {
     
     var timesPressedTrap: Int = 1
     
+    var restart: Bool = false
+    
     var playBackground: SKSpriteNode!
     
     override func didMoveToView(view: SKView) {
@@ -64,6 +66,28 @@ class SelectScene: SKScene {
         }
         if self.obstacles != [0,0,0,0,0,0] {
             self.playBackground.alpha = 1.0
+        }
+        
+        if restart == true {
+            /* Grab reference to our SpriteKit view */
+            let skView = self.view as SKView!
+            
+            /* Load Game scene */
+            let gameScene = GameScene(fileNamed:"GameScene") as GameScene!
+            
+            gameScene.selectWhatever = self
+            gameScene.scrollSpeed = self.scrollSpeed
+            
+            /* Ensure correct aspect mode */
+            gameScene.scaleMode = .AspectFill
+            
+            /* Show debug */
+            skView.showsPhysics = true
+            skView.showsDrawCount = true
+            skView.showsFPS = true
+            
+            /* Start game scene */
+            skView.presentScene(gameScene)
         }
         
         
@@ -98,13 +122,13 @@ class SelectScene: SKScene {
                 let skView = self.view as SKView!
                 
                 /* Load Game scene */
-                let scene = GameScene(fileNamed:"GameScene") as GameScene!
+                let gameScene = GameScene(fileNamed:"GameScene") as GameScene!
                 
-                scene.selectWhatever = self
-                scene.scrollSpeed = self.scrollSpeed
+                gameScene.selectWhatever = self
+                gameScene.scrollSpeed = self.scrollSpeed
                 
                 /* Ensure correct aspect mode */
-                scene.scaleMode = .AspectFill
+                gameScene.scaleMode = .AspectFill
                 
                 /* Show debug */
                 skView.showsPhysics = true
@@ -112,7 +136,7 @@ class SelectScene: SKScene {
                 skView.showsFPS = true
                 
                 /* Start game scene */
-                skView.presentScene(scene)
+                skView.presentScene(gameScene)
             }
         }
         
