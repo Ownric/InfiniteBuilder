@@ -194,6 +194,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             /* Apply vertical impulse */
             hero.physicsBody?.applyImpulse(CGVectorMake(0, 2))
             
+            
         }
         
         /* Clamp rotation */
@@ -239,6 +240,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             
             /* Check if ground sprite has left the scene */
             if groundPosition.x <= -ground.size.width / 2 {
+                
+                
                 
                 /* Reposition ground sprite to the second starting position */
                 let newPosition = CGPointMake( (self.size.width / 2) + ground.size.width, groundPosition.y)
