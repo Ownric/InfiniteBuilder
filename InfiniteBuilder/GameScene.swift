@@ -20,6 +20,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     var scoreLabel: SKLabelNode!
     
+    var highScoreLabel: SKLabelNode!
+    
     /* Game management */
     var gameState: GameSceneState = .Active
     
@@ -76,6 +78,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         scoreLabel = self.childNodeWithName("scoreLabel") as! SKLabelNode
         
+        highScoreLabel = self.childNodeWithName("highScoreLabel") as! SKLabelNode
+        
         /* Setup restart button selection handler */
         buttonRestart.selectedHandler = {
             
@@ -127,6 +131,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         /* Reset Score label */
         scoreLabel.text = String(points)
+        
+        highScoreLabel.text = String(self.selectWhatever.highScore)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -198,6 +204,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             
             self.selectWhatever.scrollSpeed += 0.02
             
+        }
+        
+        if points > self.selectWhatever.highScore {
+            self.selectWhatever.highScore = points
         }
         
         /* Update last touch timer */

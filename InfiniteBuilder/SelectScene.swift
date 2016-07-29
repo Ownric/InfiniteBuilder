@@ -45,6 +45,8 @@ class SelectScene: SKScene {
     
     var playBackground: SKSpriteNode!
     
+    var highScore = 0
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
