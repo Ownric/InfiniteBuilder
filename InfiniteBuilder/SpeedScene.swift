@@ -27,11 +27,11 @@ class SpeedScene: SKScene {
     
     var selectWhatever: SelectScene!
     
-    var slowBack: SKSpriteNode!
+    var slowCheck: SKSpriteNode!
     
-    var mediumBack: SKSpriteNode!
+    var mediumCheck: SKSpriteNode!
     
-    var fastBack: SKSpriteNode!
+    var fastCheck: SKSpriteNode!
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -45,26 +45,26 @@ class SpeedScene: SKScene {
         
         buttonSpeedSlow = self.childNodeWithName("buttonSpeedSlow") as! MSButtonNode
         
-        slowBack = self.childNodeWithName("slowBack") as! SKSpriteNode
+        slowCheck = self.childNodeWithName("slowCheck") as! SKSpriteNode
         
-        mediumBack = self.childNodeWithName("mediumBack") as! SKSpriteNode
+        mediumCheck = self.childNodeWithName("mediumCheck") as! SKSpriteNode
         
-        fastBack = self.childNodeWithName("fastBack") as! SKSpriteNode
+        fastCheck = self.childNodeWithName("fastCheck") as! SKSpriteNode
         
         if self.selectWhatever.scrollSpeed == 240 {
-            self.slowBack.color = .greenColor()
-            self.mediumBack.color = .blueColor()
-            self.fastBack.color = .blueColor()
+            self.slowCheck.alpha = 1
+            self.mediumCheck.alpha = 0
+            self.fastCheck.alpha = 0
         }
         if self.selectWhatever.scrollSpeed == 300 {
-            self.slowBack.color = .blueColor()
-            self.mediumBack.color = .greenColor()
-            self.fastBack.color = .blueColor()
+            self.slowCheck.alpha = 0
+            self.mediumCheck.alpha = 1
+            self.fastCheck.alpha = 0
         }
         if self.selectWhatever.scrollSpeed == 360 {
-            self.slowBack.color = .blueColor()
-            self.mediumBack.color = .blueColor()
-            self.fastBack.color = .greenColor()
+            self.slowCheck.alpha = 0
+            self.mediumCheck.alpha = 0
+            self.fastCheck.alpha = 1
         }
         
         /* Setup restart button selection handler */
@@ -77,25 +77,25 @@ class SpeedScene: SKScene {
             self.selectWhatever.scrollSpeed = 360
             self.selectWhatever.speedType = 360
             
-            self.slowBack.color = .blueColor()
-            self.mediumBack.color = .blueColor()
-            self.fastBack.color = .greenColor()
+            self.slowCheck.alpha = 0
+            self.mediumCheck.alpha = 0
+            self.fastCheck.alpha = 1
         }
         buttonSpeedMedium.selectedHandler = {
             self.selectWhatever.scrollSpeed = 300
             self.selectWhatever.speedType = 300
             
-            self.slowBack.color = .blueColor()
-            self.mediumBack.color = .greenColor()
-            self.fastBack.color = .blueColor()
+            self.slowCheck.alpha = 0
+            self.mediumCheck.alpha = 1
+            self.fastCheck.alpha = 0
         }
         buttonSpeedSlow.selectedHandler = {
             self.selectWhatever.scrollSpeed = 240
             self.selectWhatever.speedType = 240
             
-            self.slowBack.color = .greenColor()
-            self.mediumBack.color = .blueColor()
-            self.fastBack.color = .blueColor()
+            self.slowCheck.alpha = 1
+            self.mediumCheck.alpha = 0
+            self.fastCheck.alpha = 0
         }
     }
 }

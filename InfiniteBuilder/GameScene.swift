@@ -210,6 +210,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             self.selectWhatever.highScore = points
         }
         
+        if hero.position.x != CGFloat(0) {
+            hero.position.x = CGFloat(0)
+        }
+        
         /* Update last touch timer */
         sinceTouch+=fixedDelta
         
@@ -381,7 +385,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 obstacleLayer.addChild(newObstacle)
                 
                 /* Generate new obstacle position, start just outside screen and with a random y value */
-                let randomPosition = CGPointMake(452, CGFloat.random(min: 234, max: 382))
+                let randomPosition = CGPointMake(452, CGFloat.random(min: 194, max: 382))
                 
                 /* Convert new node position back to obstacle layer space */
                 newObstacle.position = self.convertPoint(randomPosition, toNode: obstacleLayer)
@@ -413,6 +417,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 
                 /* We can return now */
                 return
+            }
+        }
+        
+        if nodeA.name == "roof" || nodeB.name == "roof" {
+            if gameState == .Active {
+                return
+            }
+        }
+        
+        if self.selectWhatever.controlType == 0 {
+            if nodeA.name == "ground" || nodeB.name == "ground" {
+                if gameState == .Active {
+                    return
+                }
             }
         }
         

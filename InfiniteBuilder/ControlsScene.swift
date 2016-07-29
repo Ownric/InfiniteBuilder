@@ -19,10 +19,9 @@ class ControlsScene: SKScene {
     
     var buttonControlJetPack: MSButtonNode!
     
-    var jetpackBack: SKSpriteNode!
+    var gliderCheck: SKSpriteNode!
     
-    var flappyBack: SKSpriteNode!
-    
+    var airHopCheck: SKSpriteNode!
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -34,17 +33,17 @@ class ControlsScene: SKScene {
         
         buttonControlJetPack = self.childNodeWithName("buttonControlJetPack") as! MSButtonNode
         
-        jetpackBack = self.childNodeWithName("jetpackBack") as! SKSpriteNode
+        gliderCheck = self.childNodeWithName("gliderCheck") as! SKSpriteNode
         
-        flappyBack = self.childNodeWithName("flappyBack") as! SKSpriteNode
+        airHopCheck = self.childNodeWithName("airHopCheck") as! SKSpriteNode
         
         if self.selectWhatever.controlType == 1 {
-            self.jetpackBack.color = .blueColor()
-            self.flappyBack.color = .greenColor()
+            self.gliderCheck.alpha = 0
+            self.airHopCheck.alpha = 1
         }
         if self.selectWhatever.controlType == 0 {
-            self.jetpackBack.color = .greenColor()
-            self.flappyBack.color = .blueColor()
+            self.gliderCheck.alpha = 1
+            self.airHopCheck.alpha = 0
         }
         
         /* Setup restart button selection handler */
@@ -57,14 +56,14 @@ class ControlsScene: SKScene {
         
         buttonControlJetPack.selectedHandler = {
             self.selectWhatever.controlType = 0
-            self.jetpackBack.color = .greenColor()
-            self.flappyBack.color = .blueColor()
+            self.gliderCheck.alpha = 1
+            self.airHopCheck.alpha = 0
         }
         
         buttonControlFlappy.selectedHandler = {
             self.selectWhatever.controlType = 1
-            self.jetpackBack.color = .blueColor()
-            self.flappyBack.color = .greenColor()
+            self.gliderCheck.alpha = 0
+            self.airHopCheck.alpha = 1
         }
     }
 }

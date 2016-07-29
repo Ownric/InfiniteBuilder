@@ -27,17 +27,17 @@ class ObstacleScene: SKScene {
     
     var selectWhatever: SelectScene!
     
-    var goalBack: SKSpriteNode!
+    var goalsCheck: SKSpriteNode!
     
-    var spikeWallBack: SKSpriteNode!
+    var spikeWallCheck: SKSpriteNode!
     
-    var funnelBack: SKSpriteNode!
+    var funnelCheck: SKSpriteNode!
     
-    var squareMazeBack: SKSpriteNode!
+    var squareMazeCheck: SKSpriteNode!
     
-    var reverseFunnelBack: SKSpriteNode!
+    var reverseFunnelCheck: SKSpriteNode!
     
-    var trapBack: SKSpriteNode!
+    var trapCheck: SKSpriteNode!
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -57,17 +57,17 @@ class ObstacleScene: SKScene {
         
         buttonTrap = self.childNodeWithName("buttonTrap") as! MSButtonNode
         
-        goalBack = self.childNodeWithName("goalBack") as! SKSpriteNode
+        goalsCheck = self.childNodeWithName("goalsCheck") as! SKSpriteNode
         
-        spikeWallBack = self.childNodeWithName("spikeWallBack") as! SKSpriteNode
+        spikeWallCheck = self.childNodeWithName("spikeWallCheck") as! SKSpriteNode
         
-        funnelBack = self.childNodeWithName("funnelBack") as! SKSpriteNode
+        funnelCheck = self.childNodeWithName("funnelCheck") as! SKSpriteNode
         
-        squareMazeBack = self.childNodeWithName("squareMazeBack") as! SKSpriteNode
+        squareMazeCheck = self.childNodeWithName("squareMazeCheck") as! SKSpriteNode
         
-        reverseFunnelBack = self.childNodeWithName("reverseFunnelBack") as! SKSpriteNode
+        reverseFunnelCheck = self.childNodeWithName("reverseFunnelCheck") as! SKSpriteNode
         
-        trapBack = self.childNodeWithName("trapBack") as! SKSpriteNode
+        trapCheck = self.childNodeWithName("trapCheck") as! SKSpriteNode
         
         /* Setup restart button selection handler */
         buttonReturn.selectedHandler = {
@@ -77,126 +77,126 @@ class ObstacleScene: SKScene {
         }
         
         if self.selectWhatever.timesPressedGoals % 2 != 0 {
-            self.goalBack.color = .greenColor()
+            self.goalsCheck.alpha = 1
             
         }
         if self.selectWhatever.timesPressedGoals % 2 == 0 {
-            self.goalBack.color = .blueColor()
+            self.goalsCheck.alpha = 0
         }
         
         buttonGoal.selectedHandler = {
             self.selectWhatever.timesPressedGoals += 1
             if self.selectWhatever.timesPressedGoals % 2 != 0 {
                 self.selectWhatever.obstacles[0] = 1
-                self.goalBack.color = .greenColor()
+                self.goalsCheck.alpha = 1
                 
             }
             if self.selectWhatever.timesPressedGoals % 2 == 0 {
                 self.selectWhatever.obstacles[0] = 0
-                self.goalBack.color = .blueColor()
+                self.goalsCheck.alpha = 0
             }
         }
         
         if self.selectWhatever.timesPressedSpikeWall % 2 != 0 {
-            self.spikeWallBack.color = .greenColor()
+            self.spikeWallCheck.alpha = 1
         }
         if self.selectWhatever.timesPressedSpikeWall % 2 == 0 {
-            self.spikeWallBack.color = .blueColor()
+            self.spikeWallCheck.alpha = 0
         }
         
         buttonSpikeWall.selectedHandler = {
             self.selectWhatever.timesPressedSpikeWall += 1
             if self.selectWhatever.timesPressedSpikeWall % 2 != 0 {
                 self.selectWhatever.obstacles[1] = 2
-                self.spikeWallBack.color = .greenColor()
+                self.spikeWallCheck.alpha = 1
             }
             if self.selectWhatever.timesPressedSpikeWall % 2 == 0 {
                 self.selectWhatever.obstacles[1] = 0
-                self.spikeWallBack.color = .blueColor()
+                self.spikeWallCheck.alpha = 0
             }
         }
         
         if self.selectWhatever.timesPressedFunnel % 2 != 0 {
-            self.funnelBack.color = .greenColor()
+            self.funnelCheck.alpha = 1
             
         }
         if self.selectWhatever.timesPressedFunnel % 2 == 0 {
-            self.funnelBack.color = .blueColor()
+            self.funnelCheck.alpha = 0
         }
         
         buttonFunnel.selectedHandler = {
             self.selectWhatever.timesPressedFunnel += 1
             if self.selectWhatever.timesPressedFunnel % 2 != 0 {
                 self.selectWhatever.obstacles[2] = 3
-                self.funnelBack.color = .greenColor()
+                self.funnelCheck.alpha = 1
                 
             }
             if self.selectWhatever.timesPressedFunnel % 2 == 0 {
                 self.selectWhatever.obstacles[2] = 0
-                self.funnelBack.color = .blueColor()
+                self.funnelCheck.alpha = 0
             }
         }
         
         if self.selectWhatever.timesPressedSquareMaze % 2 != 0 {
-            self.squareMazeBack.color = .greenColor()
+            self.squareMazeCheck.alpha = 1
             
         }
         if self.selectWhatever.timesPressedSquareMaze % 2 == 0 {
-            self.squareMazeBack.color = .blueColor()
+            self.squareMazeCheck.alpha = 0
         }
         
         buttonSquareMaze.selectedHandler = {
             self.selectWhatever.timesPressedSquareMaze += 1
             if self.selectWhatever.timesPressedSquareMaze % 2 != 0 {
                 self.selectWhatever.obstacles[3] = 4
-                self.squareMazeBack.color = .greenColor()
+                self.squareMazeCheck.alpha = 1
                 
             }
             if self.selectWhatever.timesPressedSquareMaze % 2 == 0 {
                 self.selectWhatever.obstacles[3] = 0
-                self.squareMazeBack.color = .blueColor()
+                self.squareMazeCheck.alpha = 0
             }
         }
         
         if self.selectWhatever.timesPressedReverseFunnel % 2 != 0 {
-            self.reverseFunnelBack.color = .greenColor()
+            self.reverseFunnelCheck.alpha = 1
             
         }
         if self.selectWhatever.timesPressedReverseFunnel % 2 == 0 {
-            self.reverseFunnelBack.color = .blueColor()
+            self.reverseFunnelCheck.alpha = 0
         }
         
         buttonReverseFunnel.selectedHandler = {
             self.selectWhatever.timesPressedReverseFunnel += 1
             if self.selectWhatever.timesPressedReverseFunnel % 2 != 0 {
                 self.selectWhatever.obstacles[4] = 5
-                self.reverseFunnelBack.color = .greenColor()
+                self.reverseFunnelCheck.alpha = 1
                 
             }
             if self.selectWhatever.timesPressedReverseFunnel % 2 == 0 {
                 self.selectWhatever.obstacles[4] = 0
-                self.reverseFunnelBack.color = .blueColor()
+                self.reverseFunnelCheck.alpha = 0
             }
         }
         
         if self.selectWhatever.timesPressedTrap % 2 != 0 {
-            self.trapBack.color = .greenColor()
+            self.trapCheck.alpha = 1
             
         }
         if self.selectWhatever.timesPressedTrap % 2 == 0 {
-            self.trapBack.color = .blueColor()
+            self.trapCheck.alpha = 0
         }
         
         buttonTrap.selectedHandler = {
             self.selectWhatever.timesPressedTrap += 1
             if self.selectWhatever.timesPressedTrap % 2 != 0 {
                 self.selectWhatever.obstacles[5] = 6
-                self.trapBack.color = .greenColor()
+                self.trapCheck.alpha = 1
                 
             }
             if self.selectWhatever.timesPressedTrap % 2 == 0 {
                 self.selectWhatever.obstacles[5] = 0
-                self.trapBack.color = .blueColor()
+                self.trapCheck.alpha = 0
             }
         }
     }

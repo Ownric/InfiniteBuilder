@@ -13,15 +13,11 @@ class MainScene: SKScene {
     /* UI Connections */
     var buttonPlay: MSButtonNode!
     
-    var buttonTutorial: MSButtonNode!
-    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
         /* Set UI connections */
         buttonPlay = self.childNodeWithName("buttonPlay") as! MSButtonNode
-        
-        buttonTutorial = self.childNodeWithName("buttonTutorial") as! MSButtonNode
         
         /* Setup restart button selection handler */
         buttonPlay.selectedHandler = {
@@ -42,9 +38,6 @@ class MainScene: SKScene {
             
             /* Start game scene */
             skView.presentScene(scene)
-        }
-        
-        buttonTutorial.selectedHandler = {
         }
     }
 }
