@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A522DD781D4FE971001F8BE2 /* PewPewSFX.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A522DD771D4FE971001F8BE2 /* PewPewSFX.mp3 */; };
 		A54FDE6B1D36A84800A1E4A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FDE6A1D36A84800A1E4A0 /* AppDelegate.swift */; };
 		A54FDE6D1D36A84800A1E4A0 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A54FDE6C1D36A84800A1E4A0 /* GameScene.sks */; };
 		A54FDE6F1D36A84800A1E4A0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FDE6E1D36A84800A1E4A0 /* GameScene.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A522DD771D4FE971001F8BE2 /* PewPewSFX.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PewPewSFX.mp3; sourceTree = "<group>"; };
 		A54FDE671D36A84800A1E4A0 /* InfiniteBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiniteBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A54FDE6A1D36A84800A1E4A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A54FDE6C1D36A84800A1E4A0 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -85,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A522DD761D4FE91B001F8BE2 /* SFX */ = {
+			isa = PBXGroup;
+			children = (
+				A522DD771D4FE971001F8BE2 /* PewPewSFX.mp3 */,
+			);
+			name = SFX;
+			sourceTree = "<group>";
+		};
 		A54FDE5E1D36A84700A1E4A0 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +122,7 @@
 				A54FDE701D36A84800A1E4A0 /* GameViewController.swift */,
 				A5BA9F761D42D10C006A0DE2 /* Obstacles */,
 				A57C3E7E1D36D97C00EB7F07 /* ButtonScenes */,
+				A522DD761D4FE91B001F8BE2 /* SFX */,
 				A54FDE721D36A84800A1E4A0 /* Main.storyboard */,
 				A54FDE751D36A84800A1E4A0 /* Assets.xcassets */,
 				A54FDE771D36A84800A1E4A0 /* LaunchScreen.storyboard */,
@@ -221,6 +232,7 @@
 				A54FDE791D36A84800A1E4A0 /* LaunchScreen.storyboard in Resources */,
 				A5F063AE1D4671B4005EAFB5 /* ObstacleFive.sks in Resources */,
 				A54FDE851D36AA1700A1E4A0 /* MainScene.sks in Resources */,
+				A522DD781D4FE971001F8BE2 /* PewPewSFX.mp3 in Resources */,
 				A57C3E841D36EC6100EB7F07 /* Hero.sks in Resources */,
 				A57C3E7B1D36D95C00EB7F07 /* ObstacleScene.sks in Resources */,
 				A57C3E861D36EEAB00EB7F07 /* Obstacle.sks in Resources */,

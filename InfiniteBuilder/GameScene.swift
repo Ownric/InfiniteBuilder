@@ -161,13 +161,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         /* Reset touch timer */
         sinceTouch = 0
         
+        
+        /* Play SFX */
+        let touchSFX = SKAction.playSoundFileNamed("PewPewSFX", waitForCompletion: false)
+        self.runAction(touchSFX)
+        
     }
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         
         /* Skip game update if game no longer active */
-        if gameState != .Active { return }
+        if gameState != .Active {
+            if buttonReturn.position.x != 160{
+                buttonReturn.position.x -=  10
+            }
+            if buttonRestart.position.x != 160{
+                buttonRestart.position.x -=  10
+            }
+            return
+        }
         
         /* Grab current velocity */
         let velocityY = hero.physicsBody?.velocity.dy ?? 0
@@ -194,6 +207,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             /* Apply vertical impulse */
             hero.physicsBody?.applyImpulse(CGVectorMake(0, 2))
             
+            
+        }
+        
+        if gameState == .GameOver {
+            if buttonRestart.position.x != 160{
+                buttonRestart.position.x -= 0.5
+            }
             
         }
         
