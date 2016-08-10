@@ -6,6 +6,7 @@
 //  Copyright © 2016 Owen Meyer. All rights reserved.
 //
 
+import Mixpanel
 import UIKit
 
 @UIApplicationMain
@@ -13,9 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        Mixpanel.sharedInstanceWithToken("5c117744f163289f4d31a492de3a87a6")
+        let mixpanel: Mixpanel = Mixpanel.sharedInstance()
+        mixpanel.track("App launched")
         return true
     }
 
@@ -38,10 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let defaultValue = ["MyKey" : ""]
-        defaults.registerDefaults(defaultValue)
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.\
+        
     }
 
 

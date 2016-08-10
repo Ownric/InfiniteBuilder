@@ -25,7 +25,7 @@ class SpeedScene: SKScene {
     
     var buttonSpeedSlow: MSButtonNode!
     
-    var selectWhatever: SelectScene!
+    weak var selectWhatever: SelectScene!
     
     var slowCheck: SKSpriteNode!
     
@@ -51,17 +51,20 @@ class SpeedScene: SKScene {
         
         fastCheck = self.childNodeWithName("fastCheck") as! SKSpriteNode
         
-        if self.selectWhatever.scrollSpeed == 240 {
+        let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+        self.runAction(touchSFX)
+        
+        if self.selectWhatever.scrollSpeed == 200 {
             self.slowCheck.alpha = 1
             self.mediumCheck.alpha = 0
             self.fastCheck.alpha = 0
         }
-        if self.selectWhatever.scrollSpeed == 300 {
+        if self.selectWhatever.scrollSpeed == 240 {
             self.slowCheck.alpha = 0
             self.mediumCheck.alpha = 1
             self.fastCheck.alpha = 0
         }
-        if self.selectWhatever.scrollSpeed == 360 {
+        if self.selectWhatever.scrollSpeed == 300 {
             self.slowCheck.alpha = 0
             self.mediumCheck.alpha = 0
             self.fastCheck.alpha = 1
@@ -69,29 +72,45 @@ class SpeedScene: SKScene {
         
         /* Setup restart button selection handler */
         buttonReturn.selectedHandler = {
+            
+            self.selectWhatever.buttonsPressed[2] = 0
+            
             /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
+            
+            let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+            self.runAction(touchSFX)
+            
             skView.presentScene(self.selectWhatever)
         }
         buttonSpeedFast.selectedHandler = {
-            self.selectWhatever.scrollSpeed = 360
-            self.selectWhatever.speedType = 360
+            
+            let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+            self.runAction(touchSFX)
+            self.selectWhatever.scrollSpeed = 300
+            self.selectWhatever.speedType = 300
             
             self.slowCheck.alpha = 0
             self.mediumCheck.alpha = 0
             self.fastCheck.alpha = 1
         }
         buttonSpeedMedium.selectedHandler = {
-            self.selectWhatever.scrollSpeed = 300
-            self.selectWhatever.speedType = 300
+            
+            let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+            self.runAction(touchSFX)
+            self.selectWhatever.scrollSpeed = 240
+            self.selectWhatever.speedType = 240
             
             self.slowCheck.alpha = 0
             self.mediumCheck.alpha = 1
             self.fastCheck.alpha = 0
         }
         buttonSpeedSlow.selectedHandler = {
-            self.selectWhatever.scrollSpeed = 240
-            self.selectWhatever.speedType = 240
+            
+            let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+            self.runAction(touchSFX)
+            self.selectWhatever.scrollSpeed = 200
+            self.selectWhatever.speedType = 200
             
             self.slowCheck.alpha = 1
             self.mediumCheck.alpha = 0

@@ -12,6 +12,8 @@ import UIKit
 
 import Darwin
 
+import Mixpanel
+
 class GameScene: SKScene, SKPhysicsContactDelegate{
     
     enum GameSceneState {
@@ -37,13 +39,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     let fixedDelta: CFTimeInterval = 1.0/60.0 /* 60 FPS */
     
-    var selectWhatever: SelectScene!
+    weak var selectWhatever: SelectScene!
     
     var scrollSpeed: CGFloat = 0
     
     var touched: Bool = false
     
+    var restartTouched = false
+    
+    var backTouched = false
+    
     var touchNode: SKSpriteNode!
+    
+    var pointsTimer: CFTimeInterval = 0
     
     /* UI Connections */
     var buttonRestart: MSButtonNode!
@@ -55,6 +63,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var test: Int = 0
     
     var speedTimer: CFTimeInterval = 0
+    
+    var mixpanel: Mixpanel = Mixpanel.sharedInstance()
+    
+    var newAppDelagate: AppDelegate!
+    
+    var touchSFX: SKAudioNode?
+    var playAction: SKAction!
+    
+    //let touchSFX = SKAction.playSoundFileNamed("maybeWork", waitForCompletion: false)
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -71,6 +88,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         /* Set physics contact delegate */
         physicsWorld.contactDelegate = self
         
+        touchSFX = SKAudioNode(fileNamed: "maybeWork")
+        self.addChild(touchSFX!)
+        touchSFX?.autoplayLooped = false
+        playAction = SKAction.play()
+        
         /* Set UI connections */
         buttonRestart = self.childNodeWithName("buttonRestart") as! MSButtonNode
         
@@ -80,11 +102,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         highScoreLabel = self.childNodeWithName("highScoreLabel") as! SKLabelNode
         
+        if self.selectWhatever.speedType == 240 {
+            mixpanel.track("speed", properties: ["speed" : "slow"])
+        }
+        if self.selectWhatever.speedType == 300 {
+            mixpanel.track("speed", properties: ["speed" : "medium"])
+        }
+        if self.selectWhatever.speedType == 360 {
+            mixpanel.track("speed", properties: ["speed" : "fast"])
+        }
+        
         /* Setup restart button selection handler */
         buttonRestart.selectedHandler = {
             
-            /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
+            
+            //let touchSFX = SKAction.playSoundFileNamed("thump", waitForCompletion: false)
+            //self.runAction(touchSFX)
+            
+            //self.runAction(SKAction.playSoundFileNamed("click", waitForCompletion: false))
+            
+            self.restartTouched = true
+            
+            if self.restartTouched != false && self.backTouched != false {
+                return
+            }
             
             /* Load Game scene */
             let scene = SelectScene(fileNamed:"SelectScene") as SelectScene!
@@ -92,10 +134,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
-            /* Show debug */
+            /* Show debug
             skView.showsPhysics = true
             skView.showsDrawCount = true
-            skView.showsFPS = true
+            skView.showsFPS = true*/
             
             self.selectWhatever.restart = true
             
@@ -106,12 +148,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         /* Setup restart button selection handler */
         buttonReturn.selectedHandler = {
-            
+            //print("puppies")
+            //let touchSFX = SKAction.playSoundFileNamed("thump", waitForCompletion: false)
+            //self.runAction(touchSFX)
             /* Grab reference to our SpriteKit view */
+            
+            self.selectWhatever.buttonsPressed[3] = 0
+            
             let skView = self.view as SKView!
+            
+            self.backTouched = true
+            
+            if self.restartTouched != false && self.backTouched != false {
+                return
+            }
+            
+            //self.runAction(SKAction.playSoundFileNamed("click", waitForCompletion: false))
             
             /* Load Game scene */
             let scene = SelectScene(fileNamed:"SelectScene") as SelectScene!
+            
+            
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
@@ -133,6 +190,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         scoreLabel.text = String(points)
         
         highScoreLabel.text = String(self.selectWhatever.highScore)
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -163,8 +221,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         
         /* Play SFX */
-        let touchSFX = SKAction.playSoundFileNamed("PewPewSFX", waitForCompletion: false)
-        self.runAction(touchSFX)
+        touchSFX.runAction(playAction)
+        self.removeFromParent()
         
     }
     
@@ -195,7 +253,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 hero.physicsBody?.velocity.dy = 300
             }
         }
-        
         
         /* Apply falling rotation */
         if sinceTouch > 0.1 {
@@ -229,11 +286,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         if points > self.selectWhatever.highScore {
             self.selectWhatever.highScore = points
+            
+            mixpanel.track("highScore", properties: ["score" : points])
         }
-        
-        if hero.position.x != CGFloat(0) {
-            hero.position.x = CGFloat(0)
-        }
+        hero.position.x = CGFloat(0)
         
         /* Update last touch timer */
         sinceTouch+=fixedDelta
@@ -245,6 +301,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         updateObstacles()
         
         spawnTimer+=fixedDelta
+        pointsTimer+=fixedDelta
         
     }
     
@@ -433,10 +490,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if nodeA.name == "goal" || nodeB.name == "goal" {
             if gameState == .Active {
                 /* Increment points */
-                points += 1
+                if pointsTimer > 1 {
+                    points += 1
+                }
                 
                 /* Update score label */
                 scoreLabel.text = String(points)
+                
+                /* Resets points timer */
+                pointsTimer = 0
                 
                 /* We can return now */
                 return
@@ -452,9 +514,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if self.selectWhatever.controlType == 0 {
             if nodeA.name == "ground" || nodeB.name == "ground" {
                 if gameState == .Active {
+                    let touchSFX = SKAction.playSoundFileNamed("thump", waitForCompletion: false)
+                    self.runAction(touchSFX)
                     return
                 }
             }
+        }
+        if nodeA.name == "ground" || nodeB.name == "ground" {
+            if gameState == .Active {
+                let touchSFX = SKAction.playSoundFileNamed("thump", waitForCompletion: false)
+                self.runAction(touchSFX)
+            }
+        }
+        if nodeA.name == "goalPost" || nodeB.name == "goalPost" {
+            mixpanel.track("killed by", properties: ["obstacle" : "goal"])
+        }
+        if nodeA.name == "spikeWall" || nodeB.name == "spikeWall" {
+            mixpanel.track("killed by", properties: ["obstacle" : "spikeWall"])
+        }
+        if nodeA.name == "funnel" || nodeB.name == "funnel" {
+            mixpanel.track("killed by", properties: ["obstacle" : "funnel"])
+        }
+        if nodeA.name == "squareMaze" || nodeB.name == "squareMaze" {
+            mixpanel.track("killed by", properties: ["obstacle" : "squareMaze"])
+        }
+        if nodeA.name == "trap" || nodeB.name == "trap" {
+            mixpanel.track("killed by", properties: ["obstacle" : "trap"])
         }
         
         /* Ensure only called while game running */
@@ -465,6 +550,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         /* Change game state to game over */
         gameState = .GameOver
+        
+        mixpanel.track("final score", properties: ["score" : points])
         
         self.selectWhatever.scrollSpeed = self.selectWhatever.speedType
         

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A522DD781D4FE971001F8BE2 /* PewPewSFX.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A522DD771D4FE971001F8BE2 /* PewPewSFX.mp3 */; };
 		A54FDE6B1D36A84800A1E4A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FDE6A1D36A84800A1E4A0 /* AppDelegate.swift */; };
 		A54FDE6D1D36A84800A1E4A0 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A54FDE6C1D36A84800A1E4A0 /* GameScene.sks */; };
 		A54FDE6F1D36A84800A1E4A0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FDE6E1D36A84800A1E4A0 /* GameScene.swift */; };
@@ -25,6 +24,7 @@
 		A54FDE8F1D36BA4D00A1E4A0 /* ControlsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FDE8E1D36BA4D00A1E4A0 /* ControlsScene.swift */; };
 		A55C0D3F1D3E89DE000E8CBC /* ObstacleThree.sks in Resources */ = {isa = PBXBuildFile; fileRef = A55C0D3E1D3E89DE000E8CBC /* ObstacleThree.sks */; };
 		A55C0D411D3E8F41000E8CBC /* ObstacleTwo.sks in Resources */ = {isa = PBXBuildFile; fileRef = A55C0D401D3E8F41000E8CBC /* ObstacleTwo.sks */; };
+		A5750B331D5A6F4000143F79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5750B321D5A6F4000143F79 /* Images.xcassets */; };
 		A57C3E791D36CDC900EB7F07 /* ControlsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A57C3E781D36CDC900EB7F07 /* ControlsScene.sks */; };
 		A57C3E7B1D36D95C00EB7F07 /* ObstacleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A57C3E7A1D36D95C00EB7F07 /* ObstacleScene.sks */; };
 		A57C3E7D1D36D97000EB7F07 /* ObstacleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C3E7C1D36D97000EB7F07 /* ObstacleScene.swift */; };
@@ -33,16 +33,20 @@
 		A57C3E841D36EC6100EB7F07 /* Hero.sks in Resources */ = {isa = PBXBuildFile; fileRef = A57C3E831D36EC6100EB7F07 /* Hero.sks */; };
 		A57C3E861D36EEAB00EB7F07 /* Obstacle.sks in Resources */ = {isa = PBXBuildFile; fileRef = A57C3E851D36EEAB00EB7F07 /* Obstacle.sks */; };
 		A5BA9F781D42D155006A0DE2 /* ObstacleFour.sks in Resources */ = {isa = PBXBuildFile; fileRef = A5BA9F771D42D155006A0DE2 /* ObstacleFour.sks */; };
+		A5E29B441D53CFF900F157E5 /* thump.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A5E29B431D53CFF900F157E5 /* thump.mp3 */; };
+		A5E29B461D53D56600F157E5 /* maybeWork.wav in Resources */ = {isa = PBXBuildFile; fileRef = A5E29B451D53D56600F157E5 /* maybeWork.wav */; };
+		A5E29B481D53E0E400F157E5 /* click.wav in Resources */ = {isa = PBXBuildFile; fileRef = A5E29B471D53E0E400F157E5 /* click.wav */; };
 		A5F063AE1D4671B4005EAFB5 /* ObstacleFive.sks in Resources */ = {isa = PBXBuildFile; fileRef = A5F063AD1D4671B4005EAFB5 /* ObstacleFive.sks */; };
 		A5F063B01D467BD2005EAFB5 /* ObstacleSix.sks in Resources */ = {isa = PBXBuildFile; fileRef = A5F063AF1D467BD2005EAFB5 /* ObstacleSix.sks */; };
 		A5F063B21D46AFDF005EAFB5 /* HelpScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A5F063B11D46AFDF005EAFB5 /* HelpScene.sks */; };
 		A5F063B41D46AFFC005EAFB5 /* HelpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F063B31D46AFFC005EAFB5 /* HelpScene.swift */; };
 		A5F063B81D491BB9005EAFB5 /* CharacterActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = A5F063B71D491BB9005EAFB5 /* CharacterActions.sks */; };
+		B8B7B31F593E267CB864BDF4 /* Pods_InfiniteBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22541BF156F3F5A8F9143F32 /* Pods_InfiniteBuilder.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A522DD771D4FE971001F8BE2 /* PewPewSFX.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PewPewSFX.mp3; sourceTree = "<group>"; };
-		A54FDE671D36A84800A1E4A0 /* InfiniteBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiniteBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22541BF156F3F5A8F9143F32 /* Pods_InfiniteBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfiniteBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63E920589789D682BB1CD615 /* Pods-InfiniteBuilder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteBuilder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InfiniteBuilder/Pods-InfiniteBuilder.debug.xcconfig"; sourceTree = "<group>"; };
 		A54FDE6A1D36A84800A1E4A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A54FDE6C1D36A84800A1E4A0 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		A54FDE6E1D36A84800A1E4A0 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 		A54FDE8E1D36BA4D00A1E4A0 /* ControlsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlsScene.swift; sourceTree = "<group>"; };
 		A55C0D3E1D3E89DE000E8CBC /* ObstacleThree.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ObstacleThree.sks; sourceTree = "<group>"; };
 		A55C0D401D3E8F41000E8CBC /* ObstacleTwo.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ObstacleTwo.sks; sourceTree = "<group>"; };
+		A5750B311D5A68F100143F79 /* InfiniteBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiniteBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5750B321D5A6F4000143F79 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A57C3E781D36CDC900EB7F07 /* ControlsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ControlsScene.sks; sourceTree = "<group>"; };
 		A57C3E7A1D36D95C00EB7F07 /* ObstacleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ObstacleScene.sks; sourceTree = "<group>"; };
 		A57C3E7C1D36D97000EB7F07 /* ObstacleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleScene.swift; sourceTree = "<group>"; };
@@ -69,11 +75,15 @@
 		A57C3E831D36EC6100EB7F07 /* Hero.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Hero.sks; sourceTree = "<group>"; };
 		A57C3E851D36EEAB00EB7F07 /* Obstacle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Obstacle.sks; sourceTree = "<group>"; };
 		A5BA9F771D42D155006A0DE2 /* ObstacleFour.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = ObstacleFour.sks; path = ../ObstacleFour.sks; sourceTree = "<group>"; };
+		A5E29B431D53CFF900F157E5 /* thump.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thump.mp3; sourceTree = "<group>"; };
+		A5E29B451D53D56600F157E5 /* maybeWork.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = maybeWork.wav; sourceTree = "<group>"; };
+		A5E29B471D53E0E400F157E5 /* click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click.wav; sourceTree = "<group>"; };
 		A5F063AD1D4671B4005EAFB5 /* ObstacleFive.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ObstacleFive.sks; sourceTree = "<group>"; };
 		A5F063AF1D467BD2005EAFB5 /* ObstacleSix.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ObstacleSix.sks; sourceTree = "<group>"; };
 		A5F063B11D46AFDF005EAFB5 /* HelpScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HelpScene.sks; sourceTree = "<group>"; };
 		A5F063B31D46AFFC005EAFB5 /* HelpScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpScene.swift; sourceTree = "<group>"; };
 		A5F063B71D491BB9005EAFB5 /* CharacterActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CharacterActions.sks; sourceTree = "<group>"; };
+		B1B084DE73F324C538A8393F /* Pods-InfiniteBuilder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteBuilder.release.xcconfig"; path = "Pods/Target Support Files/Pods-InfiniteBuilder/Pods-InfiniteBuilder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8B7B31F593E267CB864BDF4 /* Pods_InfiniteBuilder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +101,9 @@
 		A522DD761D4FE91B001F8BE2 /* SFX */ = {
 			isa = PBXGroup;
 			children = (
-				A522DD771D4FE971001F8BE2 /* PewPewSFX.mp3 */,
+				A5E29B431D53CFF900F157E5 /* thump.mp3 */,
+				A5E29B451D53D56600F157E5 /* maybeWork.wav */,
+				A5E29B471D53E0E400F157E5 /* click.wav */,
 			);
 			name = SFX;
 			sourceTree = "<group>";
@@ -100,16 +113,10 @@
 			children = (
 				A5F063B71D491BB9005EAFB5 /* CharacterActions.sks */,
 				A54FDE691D36A84800A1E4A0 /* InfiniteBuilder */,
-				A54FDE681D36A84800A1E4A0 /* Products */,
+				B086E9929E8768DD22DFB411 /* Pods */,
+				AA08DDE9261EF867C2746B1C /* Frameworks */,
+				A5750B311D5A68F100143F79 /* InfiniteBuilder.app */,
 			);
-			sourceTree = "<group>";
-		};
-		A54FDE681D36A84800A1E4A0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A54FDE671D36A84800A1E4A0 /* InfiniteBuilder.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		A54FDE691D36A84800A1E4A0 /* InfiniteBuilder */ = {
@@ -130,6 +137,7 @@
 				A54FDE801D36A9EA00A1E4A0 /* MSReferenceNode.swift */,
 				A54FDE811D36A9EA00A1E4A0 /* MSButtonNode.swift */,
 				A54FDE881D36AA6100A1E4A0 /* CGFloat+Extensions.swift */,
+				A5750B321D5A6F4000143F79 /* Images.xcassets */,
 			);
 			path = InfiniteBuilder;
 			sourceTree = "<group>";
@@ -166,6 +174,23 @@
 			name = Obstacles;
 			sourceTree = "<group>";
 		};
+		AA08DDE9261EF867C2746B1C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22541BF156F3F5A8F9143F32 /* Pods_InfiniteBuilder.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B086E9929E8768DD22DFB411 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				63E920589789D682BB1CD615 /* Pods-InfiniteBuilder.debug.xcconfig */,
+				B1B084DE73F324C538A8393F /* Pods-InfiniteBuilder.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -173,9 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A54FDE7D1D36A84800A1E4A0 /* Build configuration list for PBXNativeTarget "InfiniteBuilder" */;
 			buildPhases = (
+				6B22C1E2685C8E47A15F950F /* [CP] Check Pods Manifest.lock */,
 				A54FDE631D36A84800A1E4A0 /* Sources */,
 				A54FDE641D36A84800A1E4A0 /* Frameworks */,
 				A54FDE651D36A84800A1E4A0 /* Resources */,
+				B54FAA0D0835670416445E5A /* [CP] Embed Pods Frameworks */,
+				1F21348FD2D8D91599E47A88 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -183,7 +211,7 @@
 			);
 			name = InfiniteBuilder;
 			productName = InfiniteBuilder;
-			productReference = A54FDE671D36A84800A1E4A0 /* InfiniteBuilder.app */;
+			productReference = A5750B311D5A68F100143F79 /* InfiniteBuilder.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -211,7 +239,7 @@
 				Base,
 			);
 			mainGroup = A54FDE5E1D36A84700A1E4A0;
-			productRefGroup = A54FDE681D36A84800A1E4A0 /* Products */;
+			productRefGroup = A54FDE5E1D36A84700A1E4A0;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -231,8 +259,8 @@
 				A55C0D3F1D3E89DE000E8CBC /* ObstacleThree.sks in Resources */,
 				A54FDE791D36A84800A1E4A0 /* LaunchScreen.storyboard in Resources */,
 				A5F063AE1D4671B4005EAFB5 /* ObstacleFive.sks in Resources */,
+				A5E29B461D53D56600F157E5 /* maybeWork.wav in Resources */,
 				A54FDE851D36AA1700A1E4A0 /* MainScene.sks in Resources */,
-				A522DD781D4FE971001F8BE2 /* PewPewSFX.mp3 in Resources */,
 				A57C3E841D36EC6100EB7F07 /* Hero.sks in Resources */,
 				A57C3E7B1D36D95C00EB7F07 /* ObstacleScene.sks in Resources */,
 				A57C3E861D36EEAB00EB7F07 /* Obstacle.sks in Resources */,
@@ -240,14 +268,65 @@
 				A57C3E821D36DDA300EB7F07 /* SpeedScene.sks in Resources */,
 				A57C3E791D36CDC900EB7F07 /* ControlsScene.sks in Resources */,
 				A5F063B21D46AFDF005EAFB5 /* HelpScene.sks in Resources */,
+				A5750B331D5A6F4000143F79 /* Images.xcassets in Resources */,
+				A5E29B481D53E0E400F157E5 /* click.wav in Resources */,
 				A5F063B81D491BB9005EAFB5 /* CharacterActions.sks in Resources */,
 				A54FDE8B1D36ACD000A1E4A0 /* SelectScene.sks in Resources */,
+				A5E29B441D53CFF900F157E5 /* thump.mp3 in Resources */,
 				A54FDE741D36A84800A1E4A0 /* Main.storyboard in Resources */,
 				A5F063B01D467BD2005EAFB5 /* ObstacleSix.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F21348FD2D8D91599E47A88 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InfiniteBuilder/Pods-InfiniteBuilder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B22C1E2685C8E47A15F950F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B54FAA0D0835670416445E5A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InfiniteBuilder/Pods-InfiniteBuilder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A54FDE631D36A84800A1E4A0 /* Sources */ = {
@@ -376,22 +455,26 @@
 		};
 		A54FDE7E1D36A84800A1E4A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63E920589789D682BB1CD615 /* Pods-InfiniteBuilder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = InfiniteBuilder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.org.InfiniteBuilder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.owenmeyer.org.InfiniteBuilder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		A54FDE7F1D36A84800A1E4A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1B084DE73F324C538A8393F /* Pods-InfiniteBuilder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = InfiniteBuilder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.org.InfiniteBuilder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.owenmeyer.org.InfiniteBuilder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -13,7 +13,7 @@ class ControlsScene: SKScene {
     /* UI Connections */
     var buttonReturn: MSButtonNode!
     
-    var selectWhatever: SelectScene!
+    weak var selectWhatever: SelectScene!
     
     var buttonControlFlappy: MSButtonNode!
     
@@ -37,6 +37,9 @@ class ControlsScene: SKScene {
         
         airHopCheck = self.childNodeWithName("airHopCheck") as! SKSpriteNode
         
+        let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+        self.runAction(touchSFX)
+        
         if self.selectWhatever.controlType == 1 {
             self.gliderCheck.alpha = 0
             self.airHopCheck.alpha = 1
@@ -48,19 +51,27 @@ class ControlsScene: SKScene {
         
         /* Setup restart button selection handler */
         buttonReturn.selectedHandler = {
-            
+            self.selectWhatever.buttonsPressed[0] = 0
+            let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+            self.runAction(touchSFX)
             /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
             skView.presentScene(self.selectWhatever)
         }
         
         buttonControlJetPack.selectedHandler = {
+            
+            let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+            self.runAction(touchSFX)
             self.selectWhatever.controlType = 0
             self.gliderCheck.alpha = 1
             self.airHopCheck.alpha = 0
         }
         
         buttonControlFlappy.selectedHandler = {
+            
+            let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+            self.runAction(touchSFX)
             self.selectWhatever.controlType = 1
             self.gliderCheck.alpha = 0
             self.airHopCheck.alpha = 1

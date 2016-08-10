@@ -25,7 +25,7 @@ class ObstacleScene: SKScene {
     
     var buttonTrap: MSButtonNode!
     
-    var selectWhatever: SelectScene!
+    weak var selectWhatever: SelectScene!
     
     var goalsCheck: SKSpriteNode!
     
@@ -69,10 +69,20 @@ class ObstacleScene: SKScene {
         
         trapCheck = self.childNodeWithName("trapCheck") as! SKSpriteNode
         
+        let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+        self.runAction(touchSFX)
+        
         /* Setup restart button selection handler */
         buttonReturn.selectedHandler = {
+            
+            self.selectWhatever.buttonsPressed[1] = 0
+            
             /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
+            
+            let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+            self.runAction(touchSFX)
+            
             skView.presentScene(self.selectWhatever)
         }
         
@@ -86,6 +96,10 @@ class ObstacleScene: SKScene {
         
         buttonGoal.selectedHandler = {
             self.selectWhatever.timesPressedGoals += 1
+            
+            let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+            self.runAction(touchSFX)
+            
             if self.selectWhatever.timesPressedGoals % 2 != 0 {
                 self.selectWhatever.obstacles[0] = 1
                 self.goalsCheck.alpha = 1
@@ -106,6 +120,10 @@ class ObstacleScene: SKScene {
         
         buttonSpikeWall.selectedHandler = {
             self.selectWhatever.timesPressedSpikeWall += 1
+            
+            let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+            self.runAction(touchSFX)
+            
             if self.selectWhatever.timesPressedSpikeWall % 2 != 0 {
                 self.selectWhatever.obstacles[1] = 2
                 self.spikeWallCheck.alpha = 1
@@ -126,6 +144,10 @@ class ObstacleScene: SKScene {
         
         buttonFunnel.selectedHandler = {
             self.selectWhatever.timesPressedFunnel += 1
+            
+            let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+            self.runAction(touchSFX)
+            
             if self.selectWhatever.timesPressedFunnel % 2 != 0 {
                 self.selectWhatever.obstacles[2] = 3
                 self.funnelCheck.alpha = 1
@@ -147,6 +169,10 @@ class ObstacleScene: SKScene {
         
         buttonSquareMaze.selectedHandler = {
             self.selectWhatever.timesPressedSquareMaze += 1
+            
+            let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+            self.runAction(touchSFX)
+            
             if self.selectWhatever.timesPressedSquareMaze % 2 != 0 {
                 self.selectWhatever.obstacles[3] = 4
                 self.squareMazeCheck.alpha = 1
@@ -168,6 +194,10 @@ class ObstacleScene: SKScene {
         
         buttonReverseFunnel.selectedHandler = {
             self.selectWhatever.timesPressedReverseFunnel += 1
+            
+            let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+            self.runAction(touchSFX)
+            
             if self.selectWhatever.timesPressedReverseFunnel % 2 != 0 {
                 self.selectWhatever.obstacles[4] = 5
                 self.reverseFunnelCheck.alpha = 1
@@ -189,6 +219,10 @@ class ObstacleScene: SKScene {
         
         buttonTrap.selectedHandler = {
             self.selectWhatever.timesPressedTrap += 1
+            
+            let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+            self.runAction(touchSFX)
+            
             if self.selectWhatever.timesPressedTrap % 2 != 0 {
                 self.selectWhatever.obstacles[5] = 6
                 self.trapCheck.alpha = 1

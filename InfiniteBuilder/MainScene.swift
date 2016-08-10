@@ -22,6 +22,9 @@ class MainScene: SKScene {
         /* Setup restart button selection handler */
         buttonPlay.selectedHandler = {
             
+            let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+            self.runAction(touchSFX)
+            
             /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
             
@@ -31,10 +34,10 @@ class MainScene: SKScene {
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
-            /* Show debug */
+            /* Show debug
             skView.showsPhysics = true
             skView.showsDrawCount = true
-            skView.showsFPS = true
+            skView.showsFPS = true*/
             
             /* Start game scene */
             skView.presentScene(scene)

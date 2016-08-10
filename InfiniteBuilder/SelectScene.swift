@@ -45,7 +45,23 @@ class SelectScene: SKScene {
     
     var playBackground: SKSpriteNode!
     
-    var highScore = 0
+    var buttonsPressed: [Int] = [0, 0, 0, 0, 0]
+    
+    //var newAppDelagate: AppDelegate!
+    
+    //var highScore = 0
+    
+    var highScore: Int = NSUserDefaults.standardUserDefaults().integerForKey("myHighScore") ?? 0 {
+        didSet {
+            NSUserDefaults.standardUserDefaults().setInteger(highScore, forKey:"myHighScore")
+            // Saves to disk immediately, otherwise it will save when it has time
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+    }
+    
+    var beenToHelp = false
+    
+    
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -70,9 +86,13 @@ class SelectScene: SKScene {
             self.playBackground.alpha = 1.0
         }
         
+        //highScore = newAppDelagate.savedScore
+        
         if restart == true {
             /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
+            
+            self.runAction(SKAction.playSoundFileNamed("click", waitForCompletion: false))
             
             /* Load Game scene */
             let gameScene = GameScene(fileNamed:"GameScene") as GameScene!
@@ -83,13 +103,19 @@ class SelectScene: SKScene {
             /* Ensure correct aspect mode */
             gameScene.scaleMode = .AspectFill
             
-            /* Show debug */
+            /* Show debug
             skView.showsPhysics = true
             skView.showsDrawCount = true
-            skView.showsFPS = true
+            skView.showsFPS = true */
             
             /* Start game scene */
             skView.presentScene(gameScene)
+        }
+        
+        
+        if self.buttonsPressed != [1,0,0,0,0] && self.buttonsPressed != [0,1,0,0,0] && self.buttonsPressed != [0,0,1,0,0] && self.buttonsPressed != [0,0,0,1,0] && self.buttonsPressed != [0,0,0,0,1] && self.buttonsPressed != [0,0,0,0,0] {
+            buttonsPressed = [0,0,0,0,0]
+            return
         }
         
         
@@ -97,24 +123,37 @@ class SelectScene: SKScene {
         /* Setup restart button selection handler */
         buttonHelp.selectedHandler = {
             
+            /* Play sound when button is pressed */
+            let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+            self.runAction(touchSFX)
+            
             /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
+            
+            self.buttonsPressed[4] = 1
+            
+            if self.buttonsPressed != [1,0,0,0,0] && self.buttonsPressed != [0,1,0,0,0] && self.buttonsPressed != [0,0,1,0,0] && self.buttonsPressed != [0,0,0,1,0] && self.buttonsPressed != [0,0,0,0,1] && self.buttonsPressed != [0,0,0,0,0] {
+                self.buttonsPressed = [0,0,0,0,0]
+                return
+            }
             
             /* Load Game scene */
             let scene = HelpScene(fileNamed:"HelpScene") as HelpScene!
             
+            /* Makes this scene become the copy made in HelpScene */
             scene.selectWhatever = self
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
-            /* Show debug */
+            /* Show debug
             skView.showsPhysics = true
             skView.showsDrawCount = true
-            skView.showsFPS = true
+            skView.showsFPS = true*/
             
             /* Start game scene */
             skView.presentScene(scene)
+            
         }
         
         /* Setup play button selection handler */
@@ -122,6 +161,16 @@ class SelectScene: SKScene {
             if self.obstacles != [0,0,0,0,0,0] {
                 /* Grab reference to our SpriteKit view */
                 let skView = self.view as SKView!
+                
+                self.buttonsPressed[3] = 1
+                
+                if self.buttonsPressed != [1,0,0,0,0] && self.buttonsPressed != [0,1,0,0,0] && self.buttonsPressed != [0,0,1,0,0] && self.buttonsPressed != [0,0,0,1,0] && self.buttonsPressed != [0,0,0,0,1] && self.buttonsPressed != [0,0,0,0,0] {
+                    self.buttonsPressed = [0,0,0,0,0]
+                    return
+                }
+                
+                let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+                self.runAction(touchSFX)
                 
                 /* Load Game scene */
                 let gameScene = GameScene(fileNamed:"GameScene") as GameScene!
@@ -132,7 +181,7 @@ class SelectScene: SKScene {
                 /* Ensure correct aspect mode */
                 gameScene.scaleMode = .AspectFill
                 
-                /* Show debug */
+                /* Show debug*/
                 skView.showsPhysics = true
                 skView.showsDrawCount = true
                 skView.showsFPS = true
@@ -148,6 +197,16 @@ class SelectScene: SKScene {
             /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
             
+            self.buttonsPressed[0] = 1
+            
+            if self.buttonsPressed != [1,0,0,0,0] && self.buttonsPressed != [0,1,0,0,0] && self.buttonsPressed != [0,0,1,0,0] && self.buttonsPressed != [0,0,0,1,0] && self.buttonsPressed != [0,0,0,0,1] && self.buttonsPressed != [0,0,0,0,0] {
+                self.buttonsPressed = [0,0,0,0,0]
+                return
+            }
+            
+            let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+            self.runAction(touchSFX)
+            
             /* Load Game scene */
             let scene = ControlsScene(fileNamed:"ControlsScene") as ControlsScene!
             
@@ -156,10 +215,10 @@ class SelectScene: SKScene {
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
-            /* Show debug */
+            /* Show debug
             skView.showsPhysics = true
             skView.showsDrawCount = true
-            skView.showsFPS = true
+            skView.showsFPS = true*/
             
             /* Start game scene */
             skView.presentScene(scene)
@@ -171,6 +230,16 @@ class SelectScene: SKScene {
             /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
             
+            self.buttonsPressed[1] = 1
+            
+            if self.buttonsPressed != [1,0,0,0,0] && self.buttonsPressed != [0,1,0,0,0] && self.buttonsPressed != [0,0,1,0,0] && self.buttonsPressed != [0,0,0,1,0] && self.buttonsPressed != [0,0,0,0,1] && self.buttonsPressed != [0,0,0,0,0] {
+                self.buttonsPressed = [0,0,0,0,0]
+                return
+            }
+            
+            let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+            self.runAction(touchSFX)
+            
             /* Load Game scene */
             let scene = ObstacleScene(fileNamed:"ObstacleScene") as ObstacleScene!
             
@@ -179,10 +248,10 @@ class SelectScene: SKScene {
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
-            /* Show debug */
+            /* Show debug
             skView.showsPhysics = true
             skView.showsDrawCount = true
-            skView.showsFPS = true
+            skView.showsFPS = true*/
             
             /* Start game scene */
             skView.presentScene(scene)
@@ -194,6 +263,16 @@ class SelectScene: SKScene {
             /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
             
+            self.buttonsPressed[2] = 1
+            
+            if self.buttonsPressed != [1,0,0,0,0] && self.buttonsPressed != [0,1,0,0,0] && self.buttonsPressed != [0,0,1,0,0] && self.buttonsPressed != [0,0,0,1,0] && self.buttonsPressed != [0,0,0,0,1] && self.buttonsPressed != [0,0,0,0,0] {
+                self.buttonsPressed = [0,0,0,0,0]
+                return
+            }
+            
+            let touchSFX = SKAction.playSoundFileNamed("click", waitForCompletion: false)
+            self.runAction(touchSFX)
+            
             /* Load Game scene */
             let scene = SpeedScene(fileNamed:"SpeedScene") as SpeedScene!
             
@@ -202,14 +281,13 @@ class SelectScene: SKScene {
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
-            /* Show debug */
+            /* Show debug
             skView.showsPhysics = true
             skView.showsDrawCount = true
-            skView.showsFPS = true
+            skView.showsFPS = true*/
             
             /* Start game scene */
             skView.presentScene(scene)
         }
     }
-    
 }
